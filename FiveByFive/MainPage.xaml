@@ -1,0 +1,225 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="FiveByFive.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait">
+	<phone:PhoneApplicationPage.Resources>
+		<Storyboard x:Name="GridRotation">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="GameGrid">
+				<EasingDoubleKeyFrame KeyTime="0" Value="90"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="90"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</phone:PhoneApplicationPage.Resources>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="768*"/>
+            <RowDefinition Height="75*" />
+            <RowDefinition Height="190*" />
+            <RowDefinition Height="147*" />
+        </Grid.RowDefinitions>
+        <Rectangle Fill="Red"/>
+        <Grid x:Name="GameGrid" Margin="20" Grid.Row="1">
+        	<!--<Grid.Projection>
+        		<PlaneProjection RotationX="90"/>
+        	</Grid.Projection>-->
+        	<Rectangle Stroke="White" StrokeThickness="1" />
+        	<Grid Margin="1">
+        		<Grid.ColumnDefinitions>
+        			<ColumnDefinition Width="*" />
+        			<ColumnDefinition Width="1" />
+        			<ColumnDefinition Width="*" />
+        			<ColumnDefinition Width="1" />
+        			<ColumnDefinition Width="*" />
+        			<ColumnDefinition Width="1" />
+        			<ColumnDefinition Width="*" />
+        			<ColumnDefinition Width="1" />
+        			<ColumnDefinition Width="*" />
+        		</Grid.ColumnDefinitions>
+        		<Grid.RowDefinitions>
+        			<RowDefinition Height="*" />
+        			<RowDefinition Height="1" />
+        			<RowDefinition Height="*" />
+        			<RowDefinition Height="1" />
+        			<RowDefinition Height="*" />
+        			<RowDefinition Height="1" />
+        			<RowDefinition Height="*" />
+        			<RowDefinition Height="1" />
+        			<RowDefinition Height="*" />
+        		</Grid.RowDefinitions>
+                <TextBlock x:Name="Box11" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="one" /><LineBreak/><Run Text="1" FontSize="36"/>
+                </TextBlock>
+                <TextBlock x:Name="Box21" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="two" /><LineBreak/><Run Text="1" FontSize="36"/>
+                </TextBlock>
+                <TextBlock x:Name="Box31" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="three" /><LineBreak/><Run Text="1" FontSize="36"/>
+                </TextBlock>
+                <TextBlock x:Name="Box41" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="four" /><LineBreak/><Run Text="1" FontSize="36"/>
+                </TextBlock>
+                <TextBlock x:Name="Box51" Grid.Row="8" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="five" /><LineBreak/><Run Text="1" FontSize="36"/>
+                </TextBlock>
+
+                <TextBlock x:Name="Box12" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="one" /><LineBreak/><Run Text="2" FontSize="36"/>
+                </TextBlock>
+                <TextBlock x:Name="Box22" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="two" /><LineBreak/><Run Text="2" FontSize="36"/>
+                </TextBlock>
+                <TextBlock x:Name="Box32" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="three" /><LineBreak/><Run Text="2" FontSize="36"/>
+                </TextBlock>
+                <TextBlock x:Name="Box42" Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="four" /><LineBreak/><Run Text="2" FontSize="36"/>
+                </TextBlock>
+                <TextBlock x:Name="Box52" Grid.Row="8" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="five" /><LineBreak/><Run Text="2" FontSize="36"/>
+                </TextBlock>
+
+                <TextBlock x:Name="Box13" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="one" /><LineBreak/><Run Text="3" FontSize="36"/>
+                </TextBlock>
+                <TextBlock x:Name="Box23" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="two" /><LineBreak/><Run Text="3" FontSize="36"/>
+                </TextBlock>
+                <TextBlock x:Name="Box33" Grid.Row="4" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="three" /><LineBreak/><Run Text="3" FontSize="36"/>
+                </TextBlock>
+                <TextBlock x:Name="Box43" Grid.Row="6" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="four" /><LineBreak/><Run Text="3" FontSize="36"/>
+                </TextBlock>
+                <TextBlock x:Name="Box53" Grid.Row="8" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="five" /><LineBreak/><Run Text="3" FontSize="36"/>
+                </TextBlock>
+
+                <TextBlock x:Name="Box14" Grid.Row="0" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="one" /><LineBreak/><Run Text="4" FontSize="36"/>
+                </TextBlock>
+                <TextBlock x:Name="Box24" Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="two" /><LineBreak/><Run Text="4" FontSize="36"/>
+                </TextBlock>
+                <TextBlock x:Name="Box34" Grid.Row="4" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="three" /><LineBreak/><Run Text="4" FontSize="36"/>
+                </TextBlock>
+                <TextBlock x:Name="Box44" Grid.Row="6" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="four" /><LineBreak/><Run Text="4" FontSize="36"/>
+                </TextBlock>
+                <TextBlock x:Name="Box54" Grid.Row="8" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="five" /><LineBreak/><Run Text="4" FontSize="36"/>
+                </TextBlock>
+
+                <TextBlock x:Name="Box15" Grid.Row="0" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="one" /><LineBreak/><Run Text="5" FontSize="36"/>
+                </TextBlock>
+                <TextBlock x:Name="Box25" Grid.Row="2" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="two" /><LineBreak/><Run Text="5" FontSize="36"/>
+                </TextBlock>
+                <TextBlock x:Name="Box35" Grid.Row="4" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="three" /><LineBreak/><Run Text="5" FontSize="36"/>
+                </TextBlock>
+                <TextBlock x:Name="Box45" Grid.Row="6" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="four" /><LineBreak/><Run Text="5" FontSize="36"/>
+                </TextBlock>
+                <TextBlock x:Name="Box55" Grid.Row="8" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                    <Run Text="five" /><LineBreak/><Run Text="5" FontSize="36"/>
+                </TextBlock>
+
+                <Rectangle x:Name="Tap11" Grid.Row="0" Grid.Column="0" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap12" Grid.Row="0" Grid.Column="2" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap13" Grid.Row="0" Grid.Column="4" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap14" Grid.Row="0" Grid.Column="6" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap15" Grid.Row="0" Grid.Column="8" Tap="Number_Tap" Fill="Transparent" />
+
+                <Rectangle x:Name="Tap21" Grid.Row="2" Grid.Column="0" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap22" Grid.Row="2" Grid.Column="2" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap23" Grid.Row="2" Grid.Column="4" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap24" Grid.Row="2" Grid.Column="6" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap25" Grid.Row="2" Grid.Column="8" Tap="Number_Tap" Fill="Transparent" />
+
+                <Rectangle x:Name="Tap31" Grid.Row="4" Grid.Column="0" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap32" Grid.Row="4" Grid.Column="2" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap33" Grid.Row="4" Grid.Column="4" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap34" Grid.Row="4" Grid.Column="6" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap35" Grid.Row="4" Grid.Column="8" Tap="Number_Tap" Fill="Transparent" />
+
+                <Rectangle x:Name="Tap41" Grid.Row="6" Grid.Column="0" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap42" Grid.Row="6" Grid.Column="2" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap43" Grid.Row="6" Grid.Column="4" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap44" Grid.Row="6" Grid.Column="6" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap45" Grid.Row="6" Grid.Column="8" Tap="Number_Tap" Fill="Transparent" />
+
+                <Rectangle x:Name="Tap51" Grid.Row="8" Grid.Column="0" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap52" Grid.Row="8" Grid.Column="2" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap53" Grid.Row="8" Grid.Column="4" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap54" Grid.Row="8" Grid.Column="6" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap55" Grid.Row="8" Grid.Column="8" Tap="Number_Tap" Fill="Transparent" />
+
+                <Rectangle Grid.Row="0" Grid.Column="1" Grid.RowSpan="11" Fill="White"/>
+        		<Rectangle Grid.Row="0" Grid.Column="3" Grid.RowSpan="11" Fill="White"/>
+        		<Rectangle Grid.Row="0" Grid.Column="5" Grid.RowSpan="11" Fill="White"/>
+        		<Rectangle Grid.Row="0" Grid.Column="7" Grid.RowSpan="11" Fill="White"/>
+        		<Rectangle Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="11" Fill="White"/>
+        		<Rectangle Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="11" Fill="White"/>
+        		<Rectangle Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="11" Fill="White"/>
+        		<Rectangle Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="11" Fill="White"/>
+        	</Grid>
+            
+
+        </Grid>
+        <Grid Grid.Row="2">
+            <Rectangle Fill="Purple" />
+            
+        </Grid>
+        <Grid Grid.Row="3" Margin="20">
+            <Rectangle Stroke="White" StrokeThickness="1" />
+            <Grid Margin="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="1" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="1" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="1" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="1" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Rectangle Grid.Row="0" Grid.Column="1" Grid.RowSpan="11" Fill="White"/>
+                <Rectangle Grid.Row="0" Grid.Column="3" Grid.RowSpan="11" Fill="White"/>
+                <Rectangle Grid.Row="0" Grid.Column="5" Grid.RowSpan="11" Fill="White"/>
+                <Rectangle Grid.Row="0" Grid.Column="7" Grid.RowSpan="11" Fill="White"/>
+                <TextBlock x:Name="Dice0" Text="1" Grid.Row="0" Grid.Column="0" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" />
+                <TextBlock x:Name="Dice1" Text="2" Grid.Row="0" Grid.Column="2" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" />
+                <TextBlock x:Name="Dice2" Text="3" Grid.Row="0" Grid.Column="4" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" />
+                <TextBlock x:Name="Dice3" Text="4" Grid.Row="0" Grid.Column="6" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" />
+                <TextBlock x:Name="Dice4" Text="5" Grid.Row="0" Grid.Column="8" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" />
+
+                <Rectangle x:Name="Die0" Grid.Row="0" Grid.Column="0" Tap="Die_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Die1" Grid.Row="0" Grid.Column="2" Tap="Die_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Die2" Grid.Row="0" Grid.Column="4" Tap="Die_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Die3" Grid.Row="0" Grid.Column="6" Tap="Die_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Die4" Grid.Row="0" Grid.Column="8" Tap="Die_Tap" Fill="Transparent" />
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="4">
+            <Rectangle Fill="Purple" />
+            <Button Content="Roll" Click="RollButton_Click" />
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>
