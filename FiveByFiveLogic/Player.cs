@@ -11,5 +11,6 @@ namespace FiveByFiveLogic
         public string Name { get; set; }
         public bool IsHumanPlayer { get; set; }
         public int Strikes { get; set; }
+        public int Rolls { get; set; }
     }
 }
