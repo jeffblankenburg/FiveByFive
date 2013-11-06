@@ -183,7 +183,8 @@
         </Grid>
         <Grid Grid.Row="2">
             <Rectangle Fill="Purple" />
-            
+            <TextBlock x:Name="PlayerText" Text="Player 1" VerticalAlignment="Center" Margin="20,0,0,0"/>
+            <TextBlock x:Name="StrikeText" Text="3 Strikes" VerticalAlignment="Center" TextAlignment="Right" Margin="0,0,20,0" />
         </Grid>
         <Grid Grid.Row="3" Margin="20">
             <Rectangle Stroke="White" StrokeThickness="1" />
@@ -218,7 +219,7 @@
         </Grid>
         <Grid Grid.Row="4">
             <Rectangle Fill="Purple" />
-            <Button Content="Roll" Click="RollButton_Click" />
+            <Button x:Name="RollButton" Content="Roll" Click="RollButton_Click" />
         </Grid>
     </Grid>
 

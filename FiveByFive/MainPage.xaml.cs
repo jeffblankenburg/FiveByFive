@@ -45,15 +45,43 @@ namespace FiveByFive
 
         private void RollButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Game.RollDice())
+            RollResult result = Game.RollDice();
+
+            UpdateBoard(result);
+
+        }
+
+        private void UpdateBoard(RollResult result)
+        {
+            //DISABLE ROLL BUTTON IF LAST ROLL
+            if (result.IsLastRoll) RollButton.IsEnabled = false;
+
+            //SHOW NEW DICE VALUES
+            Dice0.Text = Game.GetDieValue(0).ToString();
+            Dice1.Text = Game.GetDieValue(1).ToString();
+            Dice2.Text = Game.GetDieValue(2).ToString();
+            Dice3.Text = Game.GetDieValue(3).ToString();
+            Dice4.Text = Game.GetDieValue(4).ToString();
+
+            //UPDATE UI TO SHOW AVAILABLE BOXES TO SELECT
+            for (int i = 0; i < 5; i++)
             {
-                for (int i = 0;i<5;i++)
+                for (int j = 0; j < 5; j++)
                 {
-                    TextBlock t = FindName("Dice" + i) as TextBlock;
-                    t.Text = Game.GetDieValue(i).ToString();
+                    Rectangle r = FindName("Tap" + (i + 1) + "" + (j + 1)) as Rectangle;
+                    if ((result.Layout.Spaces[i, j] == true) && (Game.GameBoard.Spaces[i,j] == false))
+                    {
+                        r.Fill = HeldBrush;
+                    }
+                    else r.Fill = ClearBrush;
                 }
             }
 
+            //UPDATE STRIKES
+            StrikeText.Text = result.Player.Strikes + " Strikes";
+
+            //UPDATE PLAYER NAME
+            PlayerText.Text = result.Player.Name;
         }
 
         private void Die_Tap(object sender, System.Windows.Input.GestureEventArgs e)
