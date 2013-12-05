@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiveByFive", "FiveByFive\Fi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiveByFiveLogic", "FiveByFiveLogic\FiveByFiveLogic.csproj", "{C5E5D458-FB48-4910-BF52-D135638306CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiveByFiveTests", "FiveByFiveTests\FiveByFiveTests.csproj", "{C9738DAB-548A-419C-8A4B-2EB7683B235F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,14 @@ Global
 		{C5E5D458-FB48-4910-BF52-D135638306CA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C5E5D458-FB48-4910-BF52-D135638306CA}.Release|ARM.ActiveCfg = Release|Any CPU
 		{C5E5D458-FB48-4910-BF52-D135638306CA}.Release|x86.ActiveCfg = Release|Any CPU
+		{C9738DAB-548A-419C-8A4B-2EB7683B235F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9738DAB-548A-419C-8A4B-2EB7683B235F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9738DAB-548A-419C-8A4B-2EB7683B235F}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{C9738DAB-548A-419C-8A4B-2EB7683B235F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C9738DAB-548A-419C-8A4B-2EB7683B235F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9738DAB-548A-419C-8A4B-2EB7683B235F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9738DAB-548A-419C-8A4B-2EB7683B235F}.Release|ARM.ActiveCfg = Release|Any CPU
+		{C9738DAB-548A-419C-8A4B-2EB7683B235F}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

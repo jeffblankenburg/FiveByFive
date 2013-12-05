@@ -169,6 +169,36 @@
                 <Rectangle x:Name="Tap54" Grid.Row="8" Grid.Column="6" Tap="Number_Tap" Fill="Transparent" />
                 <Rectangle x:Name="Tap55" Grid.Row="8" Grid.Column="8" Tap="Number_Tap" Fill="Transparent" />
 
+                <TextBlock x:Name="X11" Grid.Row="0" Grid.Column="0" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X12" Grid.Row="0" Grid.Column="2" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X13" Grid.Row="0" Grid.Column="4" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X14" Grid.Row="0" Grid.Column="6" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X15" Grid.Row="0" Grid.Column="8" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+
+                <TextBlock x:Name="X21" Grid.Row="2" Grid.Column="0" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X22" Grid.Row="2" Grid.Column="2" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X23" Grid.Row="2" Grid.Column="4" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X24" Grid.Row="2" Grid.Column="6" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X25" Grid.Row="2" Grid.Column="8" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+
+                <TextBlock x:Name="X32" Grid.Row="4" Grid.Column="2" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X33" Grid.Row="4" Grid.Column="4" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X34" Grid.Row="4" Grid.Column="6" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X35" Grid.Row="4" Grid.Column="8" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X31" Grid.Row="4" Grid.Column="0" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+
+                <TextBlock x:Name="X41" Grid.Row="6" Grid.Column="0" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X42" Grid.Row="6" Grid.Column="2" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X43" Grid.Row="6" Grid.Column="4" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X44" Grid.Row="6" Grid.Column="6" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X45" Grid.Row="6" Grid.Column="8" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+
+                <TextBlock x:Name="X51" Grid.Row="8" Grid.Column="0" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X52" Grid.Row="8" Grid.Column="2" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X53" Grid.Row="8" Grid.Column="4" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X54" Grid.Row="8" Grid.Column="6" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X55" Grid.Row="8" Grid.Column="8" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                
                 <Rectangle Grid.Row="0" Grid.Column="1" Grid.RowSpan="11" Fill="White"/>
         		<Rectangle Grid.Row="0" Grid.Column="3" Grid.RowSpan="11" Fill="White"/>
         		<Rectangle Grid.Row="0" Grid.Column="5" Grid.RowSpan="11" Fill="White"/>

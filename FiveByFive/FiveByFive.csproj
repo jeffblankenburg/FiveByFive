@@ -115,6 +115,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Fonts\DICKSHANDWRITING.TTF" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>

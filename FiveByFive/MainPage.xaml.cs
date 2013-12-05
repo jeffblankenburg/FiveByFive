@@ -25,7 +25,7 @@ namespace FiveByFive
         public MainPage()
         {
             InitializeComponent();
-            //DataContext = Game;
+            DataContext = Game;
             //GridRotation.Begin();
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
@@ -40,14 +40,28 @@ namespace FiveByFive
         private void Number_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             Rectangle r = sender as Rectangle;
-            string s = r.Name;
+            string n = r.Name;
+            int i = Int32.Parse(n.Replace("Tap", ""));
+
+            if (r.Fill == HeldBrush)
+            {
+                TextBlock t = FindName("X" + i) as TextBlock;
+                if (t.Visibility == Visibility.Collapsed) t.Visibility = Visibility.Visible;
+                else if (t.Visibility == Visibility.Visible) t.Visibility = Visibility.Collapsed;
+            }
+
+
         }
 
         private void RollButton_Click(object sender, RoutedEventArgs e)
         {
+            
             RollResult result = Game.RollDice();
-
             UpdateBoard(result);
+            //if (result.IsLastRoll)
+            //{
+            //    RollButton.Visibility = Visibility.Collapsed;
+            //}
 
         }
 
@@ -55,6 +69,9 @@ namespace FiveByFive
         {
             //DISABLE ROLL BUTTON IF LAST ROLL
             if (result.IsLastRoll) RollButton.IsEnabled = false;
+
+            //SHOW ROLL COUNT
+            RollButton.Content = "Roll" + result.Player.Rolls;
 
             //SHOW NEW DICE VALUES
             Dice0.Text = Game.GetDieValue(0).ToString();
@@ -93,6 +110,12 @@ namespace FiveByFive
                 r.Fill = HeldBrush;
             }
             else r.Fill = ClearBrush;
+        }
+
+        private void X_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            TextBlock t = sender as TextBlock;
+            t.Visibility = Visibility.Collapsed;
         }
 
         

@@ -8,15 +8,20 @@ namespace FiveByFiveLogic
     public class FiveByFiveGame
     {
         int PlayerIndex = 0;
-        List<Player> Players = new List<Player>();
+        public List<Player> Players = new List<Player>();
         List<Die> Dice = new List<Die>(5) { new Die(), new Die(), new Die(), new Die(), new Die() };
         public Board GameBoard = new Board();
         
         
         public FiveByFiveGame()
         {
-            Players.Add(new Player { Name = "Jeff" });
+            
 
+        }
+
+        public void AddPlayer(Player p)
+        {
+            Players.Add(p);
         }
 
         public RollResult RollDice()
@@ -42,6 +47,7 @@ namespace FiveByFiveLogic
             if (Players[PlayerIndex].Rolls == 3)
             {
                 Players[PlayerIndex].Rolls = 0;
+                result.IsLastRoll = true;
                 PlayerIndex++;
 
                 if ((PlayerIndex+1) > Players.Count())
