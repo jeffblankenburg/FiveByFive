@@ -16,14 +16,14 @@ namespace FiveByFiveLogic
             {
                 for (int j = 0; j < 5; j++)
                 {
-                    Spaces[i,j] = 0;
+                    Spaces[i,j] = -1;
                 }
             }
         }
 
         public bool AssignSpace(int position, int x, int y)
         {
-            if (Spaces[x,y] == 0)
+            if (Spaces[x,y] == -1)
             {
                 Spaces[x, y] = position;
                 return true;

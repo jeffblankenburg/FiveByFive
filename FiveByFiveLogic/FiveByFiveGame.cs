@@ -16,8 +16,8 @@ namespace FiveByFiveLogic
         
         public FiveByFiveGame()
         {
-            PlayerIndex = 1;
-            RollIndex = 0;
+            PlayerIndex = 0;
+            RollIndex = -1;
         }
 
         public void AddPlayer(Player p)
@@ -28,73 +28,154 @@ namespace FiveByFiveLogic
 
         public RollResult RollDice()
         {
-            RollResult result = new RollResult { DidRoll = true };
+            RollResult result = new RollResult { DidRoll = false };
 
-            Random r = new Random();
-            for (int i = 0; i < 5; i++)
+            if (RollIndex < 2)
             {
-                if (!Dice[i].IsHeld)
+                result = new RollResult { DidRoll = true };
+
+                Random r = new Random();
+                for (int i = 0; i < 5; i++)
                 {
-                    Dice[i].Value = r.Next(1, 6);
+                    if (!Dice[i].IsHeld)
+                    {
+                        Dice[i].Value = r.Next(1, 6);
+                    }
                 }
-            }
-
-            if (RollIndex == 2)
-                result.DidRoll = false;
-            else
                 RollIndex++;
-
-            ////HIGHLIGHT THE BOXES THAT COULD BE ILLUMINATED.  EVERY ROLL.
-            //result = SetAvailableBoxes(result);
-
-            ////CHECK TO SEE IF THIS WAS THE PLAYER'S LAST ROLL.  THIS SHOULD LOCK THE ROLL BUTTON, AND MOVE TO THE NEXT PLAYER.
-            if (RollIndex == 2)
-            {
-                result.IsLastRoll = true;
             }
-
             return result;
         }
 
-        private RollResult SetAvailableBoxes(RollResult result)
+        public void UpdateBoard()
         {
-            //int[] Counters = new int[]{0,0,0,0,0};
+            int[] Counters = new int[] {0,0,0,0,0};
+            
+            //RESET ALL HIGHLIGHTED SPACES.
+            for (int k = 0; k <= 4; k++)
+            {
+                for (int l = 0; l <= 4; l++)
+                {
+                    if (GameBoard.Spaces[k, l] == 0)
+                        GameBoard.Spaces[k, l] = -1;
 
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    for (int j = 0;j<5;j++)
-            //    {
-            //        if (Dice[j].Value == (i+1)) Counters[i]++;
-            //    }
+                    if (GameBoard.Spaces[k, l] == 100)
+                        Counters[l] = Counters[l] - (k+1);
+                }
+            }
+            
+            //COUNT THE NUMBER OF EACH TYPE OF DICE.
+            
+            Counters[0] = Counters[0] + Dice.Where(x => x.Value == 1).Count();
+            Counters[1] = Counters[1] + Dice.Where(x => x.Value == 2).Count();
+            Counters[2] = Counters[2] + Dice.Where(x => x.Value == 3).Count();
+            Counters[3] = Counters[3] + Dice.Where(x => x.Value == 4).Count();
+            Counters[4] = Counters[4] + Dice.Where(x => x.Value == 5).Count();
 
-            //    if (Counters[i] > 0)
-            //    {
-            //        for (int j = 0; j < Counters[i]; j++)
-            //        {
-            //            result.Layout.Spaces[j,i] = true;
-            //        }
-            //    }
-            //}
+            //MARK THE SPACES THAT COULD STILL BE CHECKED.
+            for (int i = 0; i <= 4; i++)
+            {
+                if (Counters[i] > 0)
+                {
+                    for (int j = Counters[i] - 1; j >= 0; j--)
+                    {
+                        if (GameBoard.Spaces[j, i] == -1)
+                            GameBoard.Spaces[j, i] = 0;
+                    }
+                }
+                else
+                {
+                    for (int p = 0; p <= 4; p++)
+                    {
+                        if (GameBoard.Spaces[p, i] == 0)
+                            GameBoard.Spaces[p, i] = -1;
+                    }
+                }
+            }
+        }
 
+        public void EndTurn()
+        {
+            int UsedDiceCount = 0;
+            
+            for (int i = 0; i<=4;i++)
+            {
+                for (int j = 0; j<=4; j++)
+                {
+                    if (GameBoard.Spaces[i, j] == 100)
+                    {
+                        GameBoard.Spaces[i, j] = Players[PlayerIndex].Position;
+                        UsedDiceCount = UsedDiceCount + (i + 1);
+                    }
+                }
+                HoldDie(i);
+            }
 
+            //THIS NEEDS TO MAKE SURE THE CURRENT PLAYER IS ASSIGNED A STRIKE FOR EVERY DIE THEY DIDN'T USE.
+            Players[PlayerIndex].AddStrikes(5-UsedDiceCount);
 
-            return result;
+            ResetDice();
+
+            PlayerIndex++;
+            RollIndex = -1;
+            if (PlayerIndex == Players.Count()) PlayerIndex = 0;
+
+            UpdateBoard();
+        }
+
+        private void ResetDice()
+        {
+            Dice = new List<Die>(5) { new Die(), new Die(), new Die(), new Die(), new Die() };
         }
 
         public int GetDieValue(int die)
         {
-            //return Dice[die].Value;
-
-            return 0;
+            return Dice[die].Value;
         }
 
         public bool HoldDie(int die)
         {
-            //Dice[die].IsHeld = !Dice[die].IsHeld;
-            //return Dice[die].IsHeld;        
-
-            return false;
+            if (Dice[die].IsHeld == true) Dice[die].IsHeld = false;
+            else if (Dice[die].IsHeld == false) Dice[die].IsHeld = true;
+            return Dice[die].IsHeld;        
         }
 
+        public int GetRollIndex()
+        {
+            return RollIndex;
+        }
+
+        public int GetCurrentStrikes()
+        {
+            return Players[PlayerIndex].Strikes;
+        }
+
+        public int GetBoardSpaceValue(int x, int y)
+        {
+            return GameBoard.Spaces[x, y];
+        }
+
+        public string GetCurrentPlayerName()
+        {
+            return Players[PlayerIndex].Name;
+        }
+
+        public void MarkBoard(int x, int y, bool state)
+        {
+            if (state == true)
+                GameBoard.Spaces[x, y] = 100;
+            else if ((state == false) && (GameBoard.Spaces[x, y] == 100))
+                GameBoard.Spaces[x, y] = 0;
+        }
+
+        public bool CheckPositionForMarking(int x, int y)
+        {
+            return GameBoard.Spaces[x, y] == 0;
+        }
+
+        public int GetPlayerIndex()
+        {
+            return PlayerIndex;
+        }
     }
 }

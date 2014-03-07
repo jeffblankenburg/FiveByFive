@@ -9,13 +9,6 @@ namespace FiveByFiveTests
     {
         public FiveByFiveGame Game;
 
-        [TestInitialize]
-        public void InitializePlayerTests()
-        {
-            Game = new FiveByFiveGame();
-            Game.AddPlayer(new Player { Name = "Jeff" });
-        }
-        
         [TestMethod]
         public void CreateOnePlayerGame()
         {
@@ -62,6 +55,23 @@ namespace FiveByFiveTests
             Game.GameBoard.AssignSpace(1, 0, 1);
             Game.GameBoard.AssignSpace(1, 0, 2);
             Assert.AreEqual(1, Game.GameBoard.Spaces[0, 0]);
+        }
+
+        [TestMethod]
+        public void BoardShouldHighlightAllFive5SpacesWhenThereAreFive5sRolled()
+        {
+            CreateGameWithThisManyPlayers(1);
+            Game.Dice[0].Value = 5;
+            Game.Dice[1].Value = 5;
+            Game.Dice[2].Value = 5;
+            Game.Dice[3].Value = 5;
+            Game.Dice[4].Value = 5;
+            Game.UpdateBoard();
+            Assert.AreEqual(0, Game.GameBoard.Spaces[0, 4]);
+            Assert.AreEqual(0, Game.GameBoard.Spaces[1, 4]);
+            Assert.AreEqual(0, Game.GameBoard.Spaces[2, 4]);
+            Assert.AreEqual(0, Game.GameBoard.Spaces[3, 4]);
+            Assert.AreEqual(0, Game.GameBoard.Spaces[4, 4]);
         }
 
         public void CreateGameWithThisManyPlayers(int playercount)

@@ -10,7 +10,7 @@ namespace FiveByFiveTests
         public FiveByFiveGame Game;
 
         [TestInitialize]
-        public void InitializePlayerTests()
+        public void InitializeRollTests()
         {
             Game = new FiveByFiveGame();
             Game.AddPlayer(new Player { Name = "Jeff" });
@@ -24,19 +24,16 @@ namespace FiveByFiveTests
         }
 
         [TestMethod]
-        public void ThreeRollsShouldIndicateItIsTheLastRoll()
+        public void FourthRollShouldNotBePermittedAndDiceValuesShouldThereforeNotChange()
         {
             SimulateThisManyRolls(3);
+            int[] OldDice = RecordDice();
             RollResult r = Game.RollDice();
-            Assert.AreEqual(true, r.IsLastRoll);
-        }
-
-        [TestMethod]
-        public void FourthRollShouldNotBePermitted()
-        {
-            SimulateThisManyRolls(4);
-            RollResult r = Game.RollDice();
-            Assert.AreEqual(false, r.DidRoll);
+            Assert.AreEqual(OldDice[0], Game.Dice[0].Value);
+            Assert.AreEqual(OldDice[1], Game.Dice[1].Value);
+            Assert.AreEqual(OldDice[2], Game.Dice[2].Value);
+            Assert.AreEqual(OldDice[3], Game.Dice[3].Value);
+            Assert.AreEqual(OldDice[4], Game.Dice[4].Value);
         }
 
         [TestMethod]
@@ -63,6 +60,17 @@ namespace FiveByFiveTests
             {
                 Game.RollDice();
             }
+        }
+
+        public int[] RecordDice()
+        {
+            int[] OldDice = new int[5];
+            OldDice[0] = Game.Dice[0].Value;
+            OldDice[1] = Game.Dice[1].Value;
+            OldDice[2] = Game.Dice[2].Value;
+            OldDice[3] = Game.Dice[3].Value;
+            OldDice[4] = Game.Dice[4].Value;
+            return OldDice;
         }
     }
 }

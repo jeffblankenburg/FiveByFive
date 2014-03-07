@@ -15,5 +15,12 @@ namespace FiveByFiveTests
             Game = new FiveByFiveGame();
             Game.AddPlayer(new Player { Name="Jeff" });
         }
+
+        [TestMethod]
+        public void AddTwoStrikesToFirstPlayer()
+        {
+            Game.Players[0].AddStrikes(2);
+            Assert.AreEqual(2, Game.Players[0].Strikes);
+        }
     }
 }

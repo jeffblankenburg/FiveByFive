@@ -212,9 +212,9 @@
 
         </Grid>
         <Grid Grid.Row="2">
-            <Rectangle Fill="Purple" />
-            <TextBlock x:Name="PlayerText" Text="Player 1" VerticalAlignment="Center" Margin="20,0,0,0"/>
-            <TextBlock x:Name="StrikeText" Text="3 Strikes" VerticalAlignment="Center" TextAlignment="Right" Margin="0,0,20,0" />
+            <Rectangle x:Name="PlayerBar" Fill="Purple" />
+            <TextBlock x:Name="PlayerText" Text="" VerticalAlignment="Center" Margin="20,0,0,0"/>
+            <TextBlock x:Name="StrikeText" Text="" VerticalAlignment="Center" TextAlignment="Right" Margin="0,0,20,0" />
         </Grid>
         <Grid Grid.Row="3" Margin="20">
             <Rectangle Stroke="White" StrokeThickness="1" />
@@ -234,11 +234,11 @@
                 <Rectangle Grid.Row="0" Grid.Column="3" Grid.RowSpan="11" Fill="White"/>
                 <Rectangle Grid.Row="0" Grid.Column="5" Grid.RowSpan="11" Fill="White"/>
                 <Rectangle Grid.Row="0" Grid.Column="7" Grid.RowSpan="11" Fill="White"/>
-                <TextBlock x:Name="Dice0" Text="1" Grid.Row="0" Grid.Column="0" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" />
-                <TextBlock x:Name="Dice1" Text="2" Grid.Row="0" Grid.Column="2" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" />
-                <TextBlock x:Name="Dice2" Text="3" Grid.Row="0" Grid.Column="4" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" />
-                <TextBlock x:Name="Dice3" Text="4" Grid.Row="0" Grid.Column="6" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" />
-                <TextBlock x:Name="Dice4" Text="5" Grid.Row="0" Grid.Column="8" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" />
+                <TextBlock x:Name="Dice0" Text="" Grid.Row="0" Grid.Column="0" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" />
+                <TextBlock x:Name="Dice1" Text="" Grid.Row="0" Grid.Column="2" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" />
+                <TextBlock x:Name="Dice2" Text="" Grid.Row="0" Grid.Column="4" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" />
+                <TextBlock x:Name="Dice3" Text="" Grid.Row="0" Grid.Column="6" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" />
+                <TextBlock x:Name="Dice4" Text="" Grid.Row="0" Grid.Column="8" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" />
 
                 <Rectangle x:Name="Die0" Grid.Row="0" Grid.Column="0" Tap="Die_Tap" Fill="Transparent" />
                 <Rectangle x:Name="Die1" Grid.Row="0" Grid.Column="2" Tap="Die_Tap" Fill="Transparent" />
