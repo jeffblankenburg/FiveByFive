@@ -11,5 +11,16 @@ namespace FiveByFiveLogic
         public int Value { get; set; }
         public bool IsHeld = false;
 
+        public Die()
+        {
+
+        }
+        
+        public Die(int value, bool isheld)
+        {
+            Value = value;
+            IsHeld = isheld;
+        }
+
     }
 }

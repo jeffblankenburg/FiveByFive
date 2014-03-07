@@ -50,8 +50,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Tests.cs" />
+    <Compile Include="TestSetup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PlayerTests.cs" />
+    <Compile Include="GameTests.cs" />
+    <Compile Include="RollTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FiveByFiveLogic\FiveByFiveLogic.csproj">

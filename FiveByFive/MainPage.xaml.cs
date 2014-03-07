@@ -71,7 +71,7 @@ namespace FiveByFive
             if (result.IsLastRoll) RollButton.IsEnabled = false;
 
             //SHOW ROLL COUNT
-            RollButton.Content = "Roll" + result.Player.Rolls;
+            //RollButton.Content = "Roll" + result.Player.Rolls;
 
             //SHOW NEW DICE VALUES
             Dice0.Text = Game.GetDieValue(0).ToString();
@@ -86,7 +86,7 @@ namespace FiveByFive
                 for (int j = 0; j < 5; j++)
                 {
                     Rectangle r = FindName("Tap" + (i + 1) + "" + (j + 1)) as Rectangle;
-                    if ((result.Layout.Spaces[i, j] == true) && (Game.GameBoard.Spaces[i,j] == false))
+                    if ((result.Layout.Spaces[i, j] > 0) && (Game.GameBoard.Spaces[i,j] == 0))
                     {
                         r.Fill = HeldBrush;
                     }

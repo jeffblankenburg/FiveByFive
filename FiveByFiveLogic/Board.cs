@@ -8,7 +8,7 @@ namespace FiveByFiveLogic
 {
     public class Board
     {
-        public bool[,] Spaces = new bool[5, 5];
+        public int[,] Spaces = new int[5, 5];
 
         public Board()
         {
@@ -16,9 +16,20 @@ namespace FiveByFiveLogic
             {
                 for (int j = 0; j < 5; j++)
                 {
-                    Spaces[i,j] = false;
+                    Spaces[i,j] = 0;
                 }
             }
+        }
+
+        public bool AssignSpace(int position, int x, int y)
+        {
+            if (Spaces[x,y] == 0)
+            {
+                Spaces[x, y] = position;
+                return true;
+            }
+
+            return false;
         }
     }
 }

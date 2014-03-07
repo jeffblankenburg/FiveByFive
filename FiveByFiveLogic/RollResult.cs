@@ -9,6 +9,7 @@ namespace FiveByFiveLogic
     public class RollResult
     {
         public bool IsLastRoll { get; set; }
+        public bool DidRoll { get; set; }
         public Board Layout { get; set; }
         public Player Player { get; set; }
 
