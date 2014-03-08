@@ -145,9 +145,16 @@ namespace FiveByFiveLogic
             return RollIndex;
         }
 
-        public int GetCurrentStrikes()
+        public int GetPlayerStrikes()
         {
             return Players[PlayerIndex].Strikes;
+        }
+
+        public int GetPlayerStrikes(int player)
+        {
+            if ((player < Players.Count()) && (player >= 0))
+                return Players[player].Strikes;
+            else return 0;
         }
 
         public int GetBoardSpaceValue(int x, int y)
@@ -155,13 +162,22 @@ namespace FiveByFiveLogic
             return GameBoard.Spaces[x, y];
         }
 
-        public string GetCurrentPlayerName()
+        public string GetPlayerName()
         {
             return Players[PlayerIndex].Name;
         }
 
+        public string GetPlayerName(int player)
+        {
+            if ((player < Players.Count()) && (player >= 0))
+                return Players[player].Name;
+            else
+                return String.Empty;
+        }
+
         public void MarkBoard(int x, int y, bool state)
         {
+            //WE MARK THE SPACES AS "100" WHEN THE USER SELECTS THEM.  WE CHANGE THEM TO THEIR POSITION WHEN THEY COMMIT THE CHOICE.
             if (state == true)
                 GameBoard.Spaces[x, y] = 100;
             else if ((state == false) && (GameBoard.Spaces[x, y] == 100))
@@ -176,6 +192,11 @@ namespace FiveByFiveLogic
         public int GetPlayerIndex()
         {
             return PlayerIndex;
+        }
+
+        public int GetPlayerCount()
+        {
+            return Players.Count();
         }
     }
 }

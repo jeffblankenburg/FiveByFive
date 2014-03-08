@@ -74,6 +74,34 @@ namespace FiveByFiveTests
             Assert.AreEqual(0, Game.GameBoard.Spaces[4, 4]);
         }
 
+        [TestMethod]
+        public void PlayerShouldHaveTwoStrikesWhenNotUsingTwoOfTheirDice()
+        {
+            CreateGameWithThisManyPlayers(1);
+            Game.GameBoard.Spaces[2, 0] = 100;
+            Game.EndTurn();
+            Assert.AreEqual(2, Game.GetPlayerStrikes(0));
+        }
+
+        [TestMethod]
+        public void PlayerShouldHaveThreeStrikesWhenNotUsingThreeOfTheirDice()
+        {
+            CreateGameWithThisManyPlayers(1);
+            Game.GameBoard.Spaces[0, 0] = 100;
+            Game.GameBoard.Spaces[0, 4] = 100;
+            Game.EndTurn();
+            Assert.AreEqual(3, Game.GetPlayerStrikes(0));
+        }
+
+        [TestMethod]
+        public void PlayerShouldHaveOneStrikeWhenNotUsingOneDie()
+        {
+            CreateGameWithThisManyPlayers(1);
+            Game.GameBoard.Spaces[3, 2] = 100;
+            Game.EndTurn();
+            Assert.AreEqual(1, Game.GetPlayerStrikes(0));
+        }
+
         public void CreateGameWithThisManyPlayers(int playercount)
         {
             Game = new FiveByFiveGame();

@@ -30,7 +30,10 @@
             <RowDefinition Height="190*" />
             <RowDefinition Height="147*" />
         </Grid.RowDefinitions>
-        <Rectangle Fill="Red"/>
+        <Grid x:Name="Scoreboard" />
+
+
+
         <Grid x:Name="GameGrid" Margin="20" Grid.Row="1">
         	<!--<Grid.Projection>
         		<PlaneProjection RotationX="90"/>
@@ -248,8 +251,13 @@
             </Grid>
         </Grid>
         <Grid Grid.Row="4">
-            <Rectangle Fill="Purple" />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <Rectangle Grid.ColumnSpan="2" Fill="Purple" />
             <Button x:Name="RollButton" Content="Roll" Click="RollButton_Click" />
+            <Button x:Name="EndTurnButton" Grid.Column="1" Content="End Turn" Click="EndTurnButton_Click" />
         </Grid>
     </Grid>
 

@@ -39,6 +39,7 @@ namespace FiveByFive
             ClearBrush = new SolidColorBrush(Colors.Transparent);
             Game.AddPlayer(new Player { Name="Jeff", IsHumanPlayer=true });
             Game.AddPlayer(new Player { Name = "Travis", IsHumanPlayer = true });
+            UpdateBoard();
         }
 
         private void Number_Tap(object sender, System.Windows.Input.GestureEventArgs e)
@@ -65,11 +66,16 @@ namespace FiveByFive
             
             if (r.DidRoll == false)
             {
-                MessageBox.Show("There should definitely be a check here to make sure they want to confirm their move.");
-                Game.EndTurn();
-                ResetDice();
+                EndTurn();
             }
+            UpdateBoard();
+        }
 
+        private void EndTurn()
+        {
+            MessageBox.Show("There should definitely be a check here to make sure they want to confirm their move.");
+            Game.EndTurn();
+            ResetDice();
             UpdateBoard();
         }
 
@@ -92,7 +98,7 @@ namespace FiveByFive
             Game.UpdateBoard();
             
             //SHOW ROLL COUNT
-            RollButton.Content = "Roll " + (Game.RollIndex + 1).ToString();
+            SetButtonContent();
 
             //SHOW NEW DICE VALUES
             if (Game.RollIndex != -1)
@@ -134,10 +140,62 @@ namespace FiveByFive
             PlayerBar.Fill = GetPlayerSolidColorBrush(Game.GetPlayerIndex() + 1);
 
             //UPDATE STRIKES
-            StrikeText.Text = Game.GetCurrentStrikes().ToString() + " strikes";
+            StrikeText.Text = Game.GetPlayerStrikes().ToString() + " strikes";
 
             //UPDATE PLAYER NAME
-            PlayerText.Text = Game.GetCurrentPlayerName();
+            PlayerText.Text = Game.GetPlayerName();
+
+            //UPDATE SCOREBOARD
+            UpdateScoreboard();
+        }
+
+        private void UpdateScoreboard()
+        {
+            Scoreboard.Children.Clear();
+            Scoreboard.ColumnDefinitions.Clear();
+            
+            for (int i = 0; i < Game.GetPlayerCount(); i++)
+            {
+                Scoreboard.ColumnDefinitions.Add(new ColumnDefinition{Width = new GridLength(1, GridUnitType.Star)});
+                
+                Rectangle r = new Rectangle();
+                r.Fill = GetPlayerSolidColorBrush(i+1);
+                Grid.SetColumn(r, i);
+                Scoreboard.Children.Add(r);
+
+                TextBlock t = new TextBlock { TextAlignment=TextAlignment.Center, VerticalAlignment=VerticalAlignment.Center };
+                t.Text = Game.GetPlayerName(i) + ": " + Game.GetPlayerStrikes(i);
+                Grid.SetColumn(t, i);
+                Scoreboard.Children.Add(t);
+            }
+        }
+
+        private void SetButtonContent()
+        {
+            switch (Game.GetRollIndex())
+            {
+                case -1:
+                    EndTurnButton.IsEnabled = false;
+                    RollButton.IsEnabled = true;
+                    RollButton.Content = "Roll";
+                    break;
+                case 0:
+                    EndTurnButton.IsEnabled = false;
+                    RollButton.IsEnabled = true;
+                    RollButton.Content = "Roll 2";
+                    break;
+                case 1:
+                    EndTurnButton.IsEnabled = false;
+                    RollButton.IsEnabled = true;
+                    RollButton.Content = "Roll 3";
+                    break;
+                case 2:
+                    EndTurnButton.IsEnabled = true;
+                    RollButton.IsEnabled = false;
+                    RollButton.Content = "Save Choices";
+                    break;
+            }
+            //RollButton.Content = "Roll " + (Game.GetRollIndex() + 1).ToString();
         }
 
         private SolidColorBrush GetPlayerSolidColorBrush(int i)
@@ -176,6 +234,11 @@ namespace FiveByFive
 
             Game.MarkBoard(x, y, false);
             UpdateBoard();
+        }
+
+        private void EndTurnButton_Click(object sender, RoutedEventArgs e)
+        {
+            EndTurn();
         }
     }
 }

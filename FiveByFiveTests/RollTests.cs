@@ -20,7 +20,7 @@ namespace FiveByFiveTests
         public void OneRollShouldIncreaseRollCount()
         {
             SimulateThisManyRolls(1);
-            Assert.AreEqual(1, Game.RollIndex);
+            Assert.AreEqual(0, Game.RollIndex);
         }
 
         [TestMethod]
