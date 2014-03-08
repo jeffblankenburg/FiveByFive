@@ -28,8 +28,10 @@ namespace FiveByFive
             InitializeComponent();
             DataContext = Game;
             //GridRotation.Begin();
-            // Sample code to localize the ApplicationBar
-            //BuildLocalizedApplicationBar();
+
+            Game.AddPlayer(new Player { Name = "Jeff", IsHumanPlayer = true });
+            Game.AddPlayer(new Player { Name = "Travis", IsHumanPlayer = true });
+            Game.AddPlayer(new Player { Name = "Sara", IsHumanPlayer = true });
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -37,9 +39,6 @@ namespace FiveByFive
             BlueBrush = new SolidColorBrush(Colors.Blue);
             HeldBrush = new SolidColorBrush(HeldColor);
             ClearBrush = new SolidColorBrush(Colors.Transparent);
-            Game.AddPlayer(new Player { Name="Jeff", IsHumanPlayer=true });
-            Game.AddPlayer(new Player { Name = "Travis", IsHumanPlayer = true });
-            Game.AddPlayer(new Player { Name = "Steve", IsHumanPlayer = true });
             UpdateBoard();
         }
 
@@ -74,7 +73,7 @@ namespace FiveByFive
 
         private void EndTurn()
         {
-            MessageBox.Show("There should definitely be a check here to make sure they want to confirm their move.");
+            //MessageBox.Show("There should definitely be a check here to make sure they want to confirm their move.");
             Game.EndTurn();
             ResetDice();
             UpdateBoard();
