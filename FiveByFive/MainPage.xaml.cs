@@ -39,6 +39,7 @@ namespace FiveByFive
             ClearBrush = new SolidColorBrush(Colors.Transparent);
             Game.AddPlayer(new Player { Name="Jeff", IsHumanPlayer=true });
             Game.AddPlayer(new Player { Name = "Travis", IsHumanPlayer = true });
+            Game.AddPlayer(new Player { Name = "Steve", IsHumanPlayer = true });
             UpdateBoard();
         }
 
@@ -163,10 +164,30 @@ namespace FiveByFive
                 Grid.SetColumn(r, i);
                 Scoreboard.Children.Add(r);
 
-                TextBlock t = new TextBlock { TextAlignment=TextAlignment.Center, VerticalAlignment=VerticalAlignment.Center };
-                t.Text = Game.GetPlayerName(i) + ": " + Game.GetPlayerStrikes(i);
-                Grid.SetColumn(t, i);
-                Scoreboard.Children.Add(t);
+                StackPanel s = new StackPanel {Orientation = System.Windows.Controls.Orientation.Vertical};
+                    TextBlock t = new TextBlock { TextAlignment=TextAlignment.Center, VerticalAlignment=VerticalAlignment.Center };
+                    t.Text = Game.GetPlayerName(i);
+                    t.Margin = new Thickness(0, 0, 0, 7);
+                    s.Children.Add(t);
+
+                    Grid boxes = new Grid { HorizontalAlignment=HorizontalAlignment.Center };
+                    for (int j = 0; j<=4; j++)
+                    {
+                        boxes.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(25) });
+                        TextBlock box = new TextBlock { Text="c", FontFamily=new FontFamily("Webdings") };
+                        Grid.SetColumn(box, j);
+                        boxes.Children.Add(box);
+                        if (j < Game.GetPlayerStrikes(i))
+                        {
+                            TextBlock x = new TextBlock { Text = "x", FontFamily = new FontFamily("Arial"), FontSize = 28, Margin = new Thickness(3, -9, 0, 0) };
+                            Grid.SetColumn(x, j);
+                            boxes.Children.Add(x);
+                        }
+                    }
+                    s.Children.Add(boxes);
+
+                Grid.SetColumn(s, i);
+                Scoreboard.Children.Add(s);
             }
         }
 
