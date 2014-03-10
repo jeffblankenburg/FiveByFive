@@ -35,7 +35,7 @@ namespace FiveByFive
             string[] split = q.Split(new char[] { ',' });
             for (int i = 0; i < split.Length-1; i++)
             {
-                Game.Players.Add(new Player { Name = split[i], IsHumanPlayer = Convert.ToBoolean(split[i + 1]) });
+                Game.AddPlayer(new Player { Name = split[i], IsHumanPlayer = Convert.ToBoolean(split[i + 1]) });
                 i++;
             }
         }
