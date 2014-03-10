@@ -26,20 +26,40 @@ namespace FiveByFive
         public MainPage()
         {
             InitializeComponent();
-            DataContext = Game;
+            //DataContext = Game;
             //GridRotation.Begin();
+        }
 
-            Game.AddPlayer(new Player { Name = "Jeff", IsHumanPlayer = true });
-            Game.AddPlayer(new Player { Name = "Travis", IsHumanPlayer = true });
-            Game.AddPlayer(new Player { Name = "Sara", IsHumanPlayer = true });
+        private void AddPlayersToGame(string q)
+        {
+            string[] split = q.Split(new char[] { ',' });
+            for (int i = 0; i < split.Length-1; i++)
+            {
+                Game.Players.Add(new Player { Name = split[i], IsHumanPlayer = Convert.ToBoolean(split[i + 1]) });
+                i++;
+            }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            if (NavigationContext.QueryString.ContainsKey("q"))
+            {
+                if (Game.GetPlayerCount() == 0)
+                { 
+                    string q = NavigationContext.QueryString["q"].ToString();
+                    AddPlayersToGame(q);
+                }
+            }
+            
             BlueBrush = new SolidColorBrush(Colors.Blue);
             HeldBrush = new SolidColorBrush(HeldColor);
             ClearBrush = new SolidColorBrush(Colors.Transparent);
             UpdateBoard();
+        }
+
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+
         }
 
         private void Number_Tap(object sender, System.Windows.Input.GestureEventArgs e)
