@@ -1,0 +1,74 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="FiveByFive.About"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="about" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <ScrollViewer>
+                <StackPanel>
+
+                    <TextBlock TextWrapping="Wrap">
+                            <Run Text="Five By Five is a pretty simple 1-3 player game, similar to Yahtzee in many ways, except that we are using FIVE 5-sided dice rather than SIX 6-sided ones.  Each player, on their turn, gets three rolls of the dice to accumulate the combination they are looking for." />
+                            <LineBreak />
+                    </TextBlock>
+                    <Image Source="Assets/Tutorial/d5.jpg" Width="200" HorizontalAlignment="Left" Tap="D5_Tap" />
+                    <TextBlock TextWrapping="Wrap">
+                    <LineBreak />
+                        <Run Text="The game is based around a board that is used by all players at the same time.  It has one space for each outcome ranging from ONE 1 up to FIVE 5s." />
+                            <LineBreak />
+                    </TextBlock>
+                    <Image Source="Assets/Tutorial/boardshot0.png" Width="300" HorizontalAlignment="Left" />
+                    <TextBlock TextWrapping="Wrap">
+                        <LineBreak />    
+                        <Run Text="For example, on your first roll, you get 1-3-5-4-4." />
+                        <LineBreak />
+                        <LineBreak />
+                        <Run Text="You might choose to hold the two 4s, and roll the other three hoping to get more fours.  On your second roll, your dice now look like 4-3-3-4-4." />
+                        <LineBreak />
+                        <LineBreak />
+                        <Run Text="Since all of the spots for those dice are open on the board, you decide to hold all of your dice, skipping your third roll, and decide to mark the board with your outcome." />
+                        <LineBreak />
+                        <LineBreak />
+                        <Run Text="This means you would mark off the 'THREE 4' and 'TWO 3' boxes on the board." />
+                    </TextBlock>
+                    <Image Source="Assets/Tutorial/boardshot1.png" Width="300" HorizontalAlignment="Left" />
+                    <TextBlock TextWrapping="Wrap">
+                        <LineBreak />    
+                        <Run Text="Eventually, as more players take turns, the board will get fuller and fuller, restricting the places you can actually put your marks.  For each die that you can't use on a turn (because that box has already been used by you or an opponent), you receive a strike.  You get five strikes in a game before you are out of the game." />
+                        <LineBreak />
+                    </TextBlock>
+                    <Image Source="Assets/Tutorial/boardshot2.png" Width="400" HorizontalAlignment="Left" />
+                    <TextBlock TextWrapping="Wrap">
+                        <LineBreak />    
+                        <Run Text="The last player remaining without five strikes is the winner." />
+                        <LineBreak />
+                    </TextBlock>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

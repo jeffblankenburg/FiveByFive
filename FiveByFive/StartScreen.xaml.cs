@@ -21,5 +21,10 @@ namespace FiveByFive
         {
             NavigationService.Navigate(new Uri("/GameSetup.xaml", UriKind.Relative));
         }
+
+        private void About_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/About.xaml", UriKind.Relative));
+        }
     }
 }

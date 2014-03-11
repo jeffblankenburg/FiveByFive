@@ -30,7 +30,7 @@
             <StackPanel>
                 <Button Content="New Game" Click="NewGame_Click"/>
                 <Button Content="Settings"></Button>
-                <Button Content="About"></Button>
+                <Button Content="About" Click="About_Click"></Button>
             </StackPanel>
         </Grid>
     </Grid>

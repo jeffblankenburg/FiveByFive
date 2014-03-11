@@ -90,6 +90,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -115,6 +118,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GameSetup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -131,6 +138,10 @@
   <ItemGroup>
     <Content Include="Assets\Icons\man_100x100.png" />
     <Content Include="Assets\Icons\robot_100x100.png" />
+    <Content Include="Assets\Tutorial\boardshot0.png" />
+    <Content Include="Assets\Tutorial\boardshot1.png" />
+    <Content Include="Assets\Tutorial\boardshot2.png" />
+    <Content Include="Assets\Tutorial\d5.jpg" />
     <Content Include="Fonts\DICKSHANDWRITING.TTF" />
     <None Include="Fonts\webdings.ttf" />
     <None Include="Properties\AppManifest.xml" />
