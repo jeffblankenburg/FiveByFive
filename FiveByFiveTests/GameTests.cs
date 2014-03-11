@@ -55,6 +55,15 @@ namespace FiveByFiveTests
         }
 
         [TestMethod]
+        public void PlayerShouldHaveFourStrikesWhenNotUsingFourOfTheirDice()
+        {
+            CreateGameWithThisManyPlayers(1);
+            Game.AssignBoardSpace(100, 4, 0);
+            Game.EndTurn();
+            Assert.AreEqual(4, Game.GetPlayerStrikes(0));
+        }
+
+        [TestMethod]
         public void PlayerShouldHaveTwoStrikesWhenNotUsingTwoOfTheirDice()
         {
             CreateGameWithThisManyPlayers(1);
