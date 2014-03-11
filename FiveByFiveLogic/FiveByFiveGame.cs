@@ -9,9 +9,9 @@ namespace FiveByFiveLogic
     {
         public int PlayerIndex;
         public int RollIndex;
-        public List<Player> Players = new List<Player>();
+        private List<Player> Players = new List<Player>();
         public List<Die> Dice = new List<Die>(5) { new Die(), new Die(), new Die(), new Die(), new Die() };
-        public Board GameBoard = new Board();
+        private Board GameBoard = new Board();
         
         
         public FiveByFiveGame()
@@ -56,10 +56,10 @@ namespace FiveByFiveLogic
             {
                 for (int l = 0; l <= 4; l++)
                 {
-                    if (GameBoard.Spaces[k, l] == 0)
-                        GameBoard.Spaces[k, l] = -1;
+                    if (GameBoard.Spaces[l, k] == 0)
+                        GameBoard.Spaces[l, k] = -1;
 
-                    if (GameBoard.Spaces[k, l] == 100)
+                    if (GameBoard.Spaces[l, k] == 100)
                         Counters[l] = Counters[l] - (k+1);
                 }
             }
@@ -79,16 +79,16 @@ namespace FiveByFiveLogic
                 {
                     for (int j = Counters[i] - 1; j >= 0; j--)
                     {
-                        if (GameBoard.Spaces[j, i] == -1)
-                            GameBoard.Spaces[j, i] = 0;
+                        if (GameBoard.Spaces[i, j] == -1)
+                            GameBoard.Spaces[i, j] = 0;
                     }
                 }
                 else
                 {
                     for (int p = 0; p <= 4; p++)
                     {
-                        if (GameBoard.Spaces[p, i] == 0)
-                            GameBoard.Spaces[p, i] = -1;
+                        if (GameBoard.Spaces[i, p] == 0)
+                            GameBoard.Spaces[i, p] = -1;
                     }
                 }
             }
@@ -197,6 +197,16 @@ namespace FiveByFiveLogic
         public int GetPlayerCount()
         {
             return Players.Count();
+        }
+
+        public void AddStrikesToPlayer(int playerIndex, int strikes)
+        {
+            Players[playerIndex].AddStrikes(strikes);
+        }
+
+        public bool AssignBoardSpace(int position, int x, int y)
+        {
+            return GameBoard.AssignSpace(position, x, y);
         }
     }
 }

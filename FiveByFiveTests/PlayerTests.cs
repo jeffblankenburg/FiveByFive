@@ -19,8 +19,8 @@ namespace FiveByFiveTests
         [TestMethod]
         public void AddTwoStrikesToFirstPlayer()
         {
-            Game.Players[0].AddStrikes(2);
-            Assert.AreEqual(2, Game.Players[0].Strikes);
+            Game.AddStrikesToPlayer(0, 2);
+            Assert.AreEqual(2, Game.GetPlayerStrikes(0));
         }
     }
 }

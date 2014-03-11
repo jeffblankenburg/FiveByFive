@@ -65,77 +65,77 @@
                 <TextBlock x:Name="Box11" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                     <Run Text="one" /><LineBreak/><Run Text="1" FontSize="36"/>
                 </TextBlock>
-                <TextBlock x:Name="Box21" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                <TextBlock x:Name="Box12" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                     <Run Text="two" /><LineBreak/><Run Text="1" FontSize="36"/>
                 </TextBlock>
-                <TextBlock x:Name="Box31" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                <TextBlock x:Name="Box13" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                     <Run Text="three" /><LineBreak/><Run Text="1" FontSize="36"/>
                 </TextBlock>
-                <TextBlock x:Name="Box41" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                <TextBlock x:Name="Box14" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                     <Run Text="four" /><LineBreak/><Run Text="1" FontSize="36"/>
                 </TextBlock>
-                <TextBlock x:Name="Box51" Grid.Row="8" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                <TextBlock x:Name="Box15" Grid.Row="8" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                     <Run Text="five" /><LineBreak/><Run Text="1" FontSize="36"/>
                 </TextBlock>
 
-                <TextBlock x:Name="Box12" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                <TextBlock x:Name="Box21" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                     <Run Text="one" /><LineBreak/><Run Text="2" FontSize="36"/>
                 </TextBlock>
                 <TextBlock x:Name="Box22" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                     <Run Text="two" /><LineBreak/><Run Text="2" FontSize="36"/>
                 </TextBlock>
-                <TextBlock x:Name="Box32" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                <TextBlock x:Name="Box23" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                     <Run Text="three" /><LineBreak/><Run Text="2" FontSize="36"/>
                 </TextBlock>
-                <TextBlock x:Name="Box42" Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                <TextBlock x:Name="Box24" Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                     <Run Text="four" /><LineBreak/><Run Text="2" FontSize="36"/>
                 </TextBlock>
-                <TextBlock x:Name="Box52" Grid.Row="8" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                <TextBlock x:Name="Box25" Grid.Row="8" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                     <Run Text="five" /><LineBreak/><Run Text="2" FontSize="36"/>
                 </TextBlock>
 
-                <TextBlock x:Name="Box13" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                <TextBlock x:Name="Box31" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                     <Run Text="one" /><LineBreak/><Run Text="3" FontSize="36"/>
                 </TextBlock>
-                <TextBlock x:Name="Box23" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                <TextBlock x:Name="Box32" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                     <Run Text="two" /><LineBreak/><Run Text="3" FontSize="36"/>
                 </TextBlock>
                 <TextBlock x:Name="Box33" Grid.Row="4" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                     <Run Text="three" /><LineBreak/><Run Text="3" FontSize="36"/>
                 </TextBlock>
-                <TextBlock x:Name="Box43" Grid.Row="6" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                <TextBlock x:Name="Box34" Grid.Row="6" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                     <Run Text="four" /><LineBreak/><Run Text="3" FontSize="36"/>
                 </TextBlock>
-                <TextBlock x:Name="Box53" Grid.Row="8" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                <TextBlock x:Name="Box35" Grid.Row="8" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                     <Run Text="five" /><LineBreak/><Run Text="3" FontSize="36"/>
                 </TextBlock>
 
-                <TextBlock x:Name="Box14" Grid.Row="0" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                <TextBlock x:Name="Box41" Grid.Row="0" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                     <Run Text="one" /><LineBreak/><Run Text="4" FontSize="36"/>
                 </TextBlock>
-                <TextBlock x:Name="Box24" Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                <TextBlock x:Name="Box42" Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                     <Run Text="two" /><LineBreak/><Run Text="4" FontSize="36"/>
                 </TextBlock>
-                <TextBlock x:Name="Box34" Grid.Row="4" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                <TextBlock x:Name="Box43" Grid.Row="4" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                     <Run Text="three" /><LineBreak/><Run Text="4" FontSize="36"/>
                 </TextBlock>
                 <TextBlock x:Name="Box44" Grid.Row="6" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                     <Run Text="four" /><LineBreak/><Run Text="4" FontSize="36"/>
                 </TextBlock>
-                <TextBlock x:Name="Box54" Grid.Row="8" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                <TextBlock x:Name="Box45" Grid.Row="8" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                     <Run Text="five" /><LineBreak/><Run Text="4" FontSize="36"/>
                 </TextBlock>
 
-                <TextBlock x:Name="Box15" Grid.Row="0" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                <TextBlock x:Name="Box51" Grid.Row="0" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                     <Run Text="one" /><LineBreak/><Run Text="5" FontSize="36"/>
                 </TextBlock>
-                <TextBlock x:Name="Box25" Grid.Row="2" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                <TextBlock x:Name="Box52" Grid.Row="2" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                     <Run Text="two" /><LineBreak/><Run Text="5" FontSize="36"/>
                 </TextBlock>
-                <TextBlock x:Name="Box35" Grid.Row="4" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                <TextBlock x:Name="Box53" Grid.Row="4" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                     <Run Text="three" /><LineBreak/><Run Text="5" FontSize="36"/>
                 </TextBlock>
-                <TextBlock x:Name="Box45" Grid.Row="6" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+                <TextBlock x:Name="Box54" Grid.Row="6" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                     <Run Text="four" /><LineBreak/><Run Text="5" FontSize="36"/>
                 </TextBlock>
                 <TextBlock x:Name="Box55" Grid.Row="8" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
@@ -143,63 +143,63 @@
                 </TextBlock>
 
                 <Rectangle x:Name="Tap11" Grid.Row="0" Grid.Column="0" Tap="Number_Tap" Fill="Transparent" />
-                <Rectangle x:Name="Tap12" Grid.Row="0" Grid.Column="2" Tap="Number_Tap" Fill="Transparent" />
-                <Rectangle x:Name="Tap13" Grid.Row="0" Grid.Column="4" Tap="Number_Tap" Fill="Transparent" />
-                <Rectangle x:Name="Tap14" Grid.Row="0" Grid.Column="6" Tap="Number_Tap" Fill="Transparent" />
-                <Rectangle x:Name="Tap15" Grid.Row="0" Grid.Column="8" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap21" Grid.Row="0" Grid.Column="2" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap31" Grid.Row="0" Grid.Column="4" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap41" Grid.Row="0" Grid.Column="6" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap51" Grid.Row="0" Grid.Column="8" Tap="Number_Tap" Fill="Transparent" />
 
-                <Rectangle x:Name="Tap21" Grid.Row="2" Grid.Column="0" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap12" Grid.Row="2" Grid.Column="0" Tap="Number_Tap" Fill="Transparent" />
                 <Rectangle x:Name="Tap22" Grid.Row="2" Grid.Column="2" Tap="Number_Tap" Fill="Transparent" />
-                <Rectangle x:Name="Tap23" Grid.Row="2" Grid.Column="4" Tap="Number_Tap" Fill="Transparent" />
-                <Rectangle x:Name="Tap24" Grid.Row="2" Grid.Column="6" Tap="Number_Tap" Fill="Transparent" />
-                <Rectangle x:Name="Tap25" Grid.Row="2" Grid.Column="8" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap32" Grid.Row="2" Grid.Column="4" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap42" Grid.Row="2" Grid.Column="6" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap52" Grid.Row="2" Grid.Column="8" Tap="Number_Tap" Fill="Transparent" />
 
-                <Rectangle x:Name="Tap31" Grid.Row="4" Grid.Column="0" Tap="Number_Tap" Fill="Transparent" />
-                <Rectangle x:Name="Tap32" Grid.Row="4" Grid.Column="2" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap13" Grid.Row="4" Grid.Column="0" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap23" Grid.Row="4" Grid.Column="2" Tap="Number_Tap" Fill="Transparent" />
                 <Rectangle x:Name="Tap33" Grid.Row="4" Grid.Column="4" Tap="Number_Tap" Fill="Transparent" />
-                <Rectangle x:Name="Tap34" Grid.Row="4" Grid.Column="6" Tap="Number_Tap" Fill="Transparent" />
-                <Rectangle x:Name="Tap35" Grid.Row="4" Grid.Column="8" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap43" Grid.Row="4" Grid.Column="6" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap53" Grid.Row="4" Grid.Column="8" Tap="Number_Tap" Fill="Transparent" />
 
-                <Rectangle x:Name="Tap41" Grid.Row="6" Grid.Column="0" Tap="Number_Tap" Fill="Transparent" />
-                <Rectangle x:Name="Tap42" Grid.Row="6" Grid.Column="2" Tap="Number_Tap" Fill="Transparent" />
-                <Rectangle x:Name="Tap43" Grid.Row="6" Grid.Column="4" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap14" Grid.Row="6" Grid.Column="0" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap24" Grid.Row="6" Grid.Column="2" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap34" Grid.Row="6" Grid.Column="4" Tap="Number_Tap" Fill="Transparent" />
                 <Rectangle x:Name="Tap44" Grid.Row="6" Grid.Column="6" Tap="Number_Tap" Fill="Transparent" />
-                <Rectangle x:Name="Tap45" Grid.Row="6" Grid.Column="8" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap54" Grid.Row="6" Grid.Column="8" Tap="Number_Tap" Fill="Transparent" />
 
-                <Rectangle x:Name="Tap51" Grid.Row="8" Grid.Column="0" Tap="Number_Tap" Fill="Transparent" />
-                <Rectangle x:Name="Tap52" Grid.Row="8" Grid.Column="2" Tap="Number_Tap" Fill="Transparent" />
-                <Rectangle x:Name="Tap53" Grid.Row="8" Grid.Column="4" Tap="Number_Tap" Fill="Transparent" />
-                <Rectangle x:Name="Tap54" Grid.Row="8" Grid.Column="6" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap15" Grid.Row="8" Grid.Column="0" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap25" Grid.Row="8" Grid.Column="2" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap35" Grid.Row="8" Grid.Column="4" Tap="Number_Tap" Fill="Transparent" />
+                <Rectangle x:Name="Tap45" Grid.Row="8" Grid.Column="6" Tap="Number_Tap" Fill="Transparent" />
                 <Rectangle x:Name="Tap55" Grid.Row="8" Grid.Column="8" Tap="Number_Tap" Fill="Transparent" />
 
                 <TextBlock x:Name="X11" Grid.Row="0" Grid.Column="0" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
-                <TextBlock x:Name="X12" Grid.Row="0" Grid.Column="2" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
-                <TextBlock x:Name="X13" Grid.Row="0" Grid.Column="4" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
-                <TextBlock x:Name="X14" Grid.Row="0" Grid.Column="6" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
-                <TextBlock x:Name="X15" Grid.Row="0" Grid.Column="8" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X21" Grid.Row="0" Grid.Column="2" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X31" Grid.Row="0" Grid.Column="4" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X41" Grid.Row="0" Grid.Column="6" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X51" Grid.Row="0" Grid.Column="8" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
 
-                <TextBlock x:Name="X21" Grid.Row="2" Grid.Column="0" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X12" Grid.Row="2" Grid.Column="0" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
                 <TextBlock x:Name="X22" Grid.Row="2" Grid.Column="2" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
-                <TextBlock x:Name="X23" Grid.Row="2" Grid.Column="4" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
-                <TextBlock x:Name="X24" Grid.Row="2" Grid.Column="6" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
-                <TextBlock x:Name="X25" Grid.Row="2" Grid.Column="8" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X32" Grid.Row="2" Grid.Column="4" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X42" Grid.Row="2" Grid.Column="6" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X52" Grid.Row="2" Grid.Column="8" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
 
-                <TextBlock x:Name="X32" Grid.Row="4" Grid.Column="2" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
-                <TextBlock x:Name="X33" Grid.Row="4" Grid.Column="4" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
-                <TextBlock x:Name="X34" Grid.Row="4" Grid.Column="6" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
-                <TextBlock x:Name="X35" Grid.Row="4" Grid.Column="8" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
-                <TextBlock x:Name="X31" Grid.Row="4" Grid.Column="0" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X13" Grid.Row="4" Grid.Column="2" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X23" Grid.Row="4" Grid.Column="4" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X33" Grid.Row="4" Grid.Column="6" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X43" Grid.Row="4" Grid.Column="8" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X53" Grid.Row="4" Grid.Column="0" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
 
-                <TextBlock x:Name="X41" Grid.Row="6" Grid.Column="0" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
-                <TextBlock x:Name="X42" Grid.Row="6" Grid.Column="2" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
-                <TextBlock x:Name="X43" Grid.Row="6" Grid.Column="4" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X14" Grid.Row="6" Grid.Column="0" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X24" Grid.Row="6" Grid.Column="2" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X34" Grid.Row="6" Grid.Column="4" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
                 <TextBlock x:Name="X44" Grid.Row="6" Grid.Column="6" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
-                <TextBlock x:Name="X45" Grid.Row="6" Grid.Column="8" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X54" Grid.Row="6" Grid.Column="8" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
 
-                <TextBlock x:Name="X51" Grid.Row="8" Grid.Column="0" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
-                <TextBlock x:Name="X52" Grid.Row="8" Grid.Column="2" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
-                <TextBlock x:Name="X53" Grid.Row="8" Grid.Column="4" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
-                <TextBlock x:Name="X54" Grid.Row="8" Grid.Column="6" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X15" Grid.Row="8" Grid.Column="0" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X25" Grid.Row="8" Grid.Column="2" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X35" Grid.Row="8" Grid.Column="4" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
+                <TextBlock x:Name="X45" Grid.Row="8" Grid.Column="6" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
                 <TextBlock x:Name="X55" Grid.Row="8" Grid.Column="8" Text="X" Foreground="Red" FontFamily="Fonts/DICKSHANDWRITING.TTF#Dicks Handwriting" FontSize="110" Margin="0,-5,0,10" TextAlignment="Center" Visibility="Collapsed" Tap="X_Tap"/>
                 
                 <Rectangle Grid.Row="0" Grid.Column="1" Grid.RowSpan="11" Fill="White"/>

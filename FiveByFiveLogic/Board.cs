@@ -21,7 +21,7 @@ namespace FiveByFiveLogic
             }
         }
 
-        public bool AssignSpace(int position, int x, int y)
+        internal bool AssignSpace(int position, int x, int y)
         {
             if (Spaces[x,y] == -1)
             {
