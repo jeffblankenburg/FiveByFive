@@ -121,7 +121,7 @@ namespace FiveByFive
             SetButtonContent();
 
             //SHOW NEW DICE VALUES
-            if (Game.RollIndex != -1)
+            if (Game.GetRollIndex() != -1)
             { 
                 Dice0.Text = Game.GetDieValue(0).ToString();
                 Dice1.Text = Game.GetDieValue(1).ToString();
@@ -131,19 +131,19 @@ namespace FiveByFive
             }
 
             //UPDATE UI TO SHOW AVAILABLE BOXES TO SELECT
-            for (int i = 0; i < 5; i++)
+            for (int x = 0; x < 5; x++)
             {
-                for (int j = 0; j < 5; j++)
+                for (int y = 0; y < 5; y++)
                 {
-                    Rectangle r = FindName("Tap" + (i + 1) + "" + (j + 1)) as Rectangle;
-                    TextBlock t = FindName("X" + (i + 1) + "" + (j + 1)) as TextBlock;
-                    if (Game.GetBoardSpaceValue(i, j) > 0)
+                    Rectangle r = FindName("Tap" + (x + 1) + "" + (y + 1)) as Rectangle;
+                    TextBlock t = FindName("X" + (x + 1) + "" + (y + 1)) as TextBlock;
+                    if (Game.GetBoardSpaceValue(x, y) > 0)
                     {
-                        t.Foreground = GetPlayerSolidColorBrush(Game.GetBoardSpaceValue(i, j));
+                        t.Foreground = GetPlayerSolidColorBrush(Game.GetBoardSpaceValue(x, y));
                         t.Visibility = Visibility.Visible;
                         r.Fill = ClearBrush;
                     }
-                    else if (Game.GetBoardSpaceValue(i, j) == 0)
+                    else if (Game.GetBoardSpaceValue(x, y) == 0)
                     {
                         t.Visibility = Visibility.Collapsed;
                         r.Fill = HeldBrush;

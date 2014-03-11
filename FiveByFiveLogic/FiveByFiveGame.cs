@@ -7,8 +7,8 @@ namespace FiveByFiveLogic
 {
     public class FiveByFiveGame
     {
-        public int PlayerIndex;
-        public int RollIndex;
+        private int PlayerIndex;
+        private int RollIndex;
         private List<Player> Players = new List<Player>();
         private List<Die> Dice = new List<Die>(5) { new Die(), new Die(), new Die(), new Die(), new Die() };
         private Board GameBoard = new Board();
