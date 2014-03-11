@@ -10,7 +10,7 @@ namespace FiveByFiveLogic
         public int PlayerIndex;
         public int RollIndex;
         private List<Player> Players = new List<Player>();
-        public List<Die> Dice = new List<Die>(5) { new Die(), new Die(), new Die(), new Die(), new Die() };
+        private List<Die> Dice = new List<Die>(5) { new Die(), new Die(), new Die(), new Die(), new Die() };
         private Board GameBoard = new Board();
         
         
@@ -50,45 +50,47 @@ namespace FiveByFiveLogic
         public void UpdateBoard()
         {
             int[] Counters = new int[] {0,0,0,0,0};
+            int x;
+            int y;
             
             //RESET ALL HIGHLIGHTED SPACES.
-            for (int k = 0; k <= 4; k++)
+            for (x = 0; x <= 4; x++)
             {
-                for (int l = 0; l <= 4; l++)
+                for (y = 0; y <= 4; y++)
                 {
-                    if (GameBoard.Spaces[l, k] == 0)
-                        GameBoard.Spaces[l, k] = -1;
+                    if (GameBoard.Spaces[x, y] == 0)
+                        GameBoard.Spaces[x, y] = -1;
 
-                    if (GameBoard.Spaces[l, k] == 100)
-                        Counters[l] = Counters[l] - (k+1);
+                    if (GameBoard.Spaces[x, y] == 100)
+                        Counters[x] = Counters[x] - (y+1);
                 }
             }
             
             //COUNT THE NUMBER OF EACH TYPE OF DICE.
             
-            Counters[0] = Counters[0] + Dice.Where(x => x.Value == 1).Count();
-            Counters[1] = Counters[1] + Dice.Where(x => x.Value == 2).Count();
-            Counters[2] = Counters[2] + Dice.Where(x => x.Value == 3).Count();
-            Counters[3] = Counters[3] + Dice.Where(x => x.Value == 4).Count();
-            Counters[4] = Counters[4] + Dice.Where(x => x.Value == 5).Count();
+            Counters[0] = Counters[0] + Dice.Where(d => d.Value == 1).Count();
+            Counters[1] = Counters[1] + Dice.Where(d => d.Value == 2).Count();
+            Counters[2] = Counters[2] + Dice.Where(d => d.Value == 3).Count();
+            Counters[3] = Counters[3] + Dice.Where(d => d.Value == 4).Count();
+            Counters[4] = Counters[4] + Dice.Where(d => d.Value == 5).Count();
 
             //MARK THE SPACES THAT COULD STILL BE CHECKED.
-            for (int i = 0; i <= 4; i++)
+            for (x = 0; x <= 4; x++)
             {
-                if (Counters[i] > 0)
+                if (Counters[x] > 0)
                 {
-                    for (int j = Counters[i] - 1; j >= 0; j--)
+                    for (y = Counters[x] - 1; y >= 0; y--)
                     {
-                        if (GameBoard.Spaces[i, j] == -1)
-                            GameBoard.Spaces[i, j] = 0;
+                        if (GameBoard.Spaces[x, y] == -1)
+                            GameBoard.Spaces[x, y] = 0;
                     }
                 }
                 else
                 {
-                    for (int p = 0; p <= 4; p++)
+                    for (y = 0; y <= 4; y++)
                     {
-                        if (GameBoard.Spaces[i, p] == 0)
-                            GameBoard.Spaces[i, p] = -1;
+                        if (GameBoard.Spaces[x, y] == 0)
+                            GameBoard.Spaces[x, y] = -1;
                     }
                 }
             }
@@ -98,17 +100,17 @@ namespace FiveByFiveLogic
         {
             int UsedDiceCount = 0;
             
-            for (int i = 0; i<=4;i++)
+            for (int x = 0; x<=4; x++)
             {
-                for (int j = 0; j<=4; j++)
+                for (int y = 0; y<=4; y++)
                 {
-                    if (GameBoard.Spaces[i, j] == 100)
+                    if (GameBoard.Spaces[x, y] == 100)
                     {
-                        GameBoard.Spaces[i, j] = Players[PlayerIndex].Position;
-                        UsedDiceCount = UsedDiceCount + (i + 1);
+                        GameBoard.Spaces[x, y] = Players[PlayerIndex].Position;
+                        UsedDiceCount = UsedDiceCount + (y + 1);
                     }
                 }
-                HoldDie(i);
+                HoldDie(x);
             }
 
             //THIS NEEDS TO MAKE SURE THE CURRENT PLAYER IS ASSIGNED A STRIKE FOR EVERY DIE THEY DIDN'T USE.
@@ -207,6 +209,11 @@ namespace FiveByFiveLogic
         public bool AssignBoardSpace(int position, int x, int y)
         {
             return GameBoard.AssignSpace(position, x, y);
+        }
+
+        public void SetDieValue(int index, int value)
+        {
+            Dice[index].Value = value;
         }
     }
 }

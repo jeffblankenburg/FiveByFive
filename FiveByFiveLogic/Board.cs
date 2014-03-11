@@ -12,11 +12,11 @@ namespace FiveByFiveLogic
 
         public Board()
         {
-            for (int i = 0; i < 5; i++)
+            for (int x = 0; x < 5; x++)
             {
-                for (int j = 0; j < 5; j++)
+                for (int y = 0; y < 5; y++)
                 {
-                    Spaces[i,j] = -1;
+                    Spaces[x, y] = -1;
                 }
             }
         }

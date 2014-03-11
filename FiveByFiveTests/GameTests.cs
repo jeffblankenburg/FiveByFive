@@ -40,12 +40,13 @@ namespace FiveByFiveTests
         public void BoardShouldHighlightAllFive5SpacesWhenThereAreFive5sRolled()
         {
             CreateGameWithThisManyPlayers(1);
-            Game.Dice[0].Value = 5;
-            Game.Dice[1].Value = 5;
-            Game.Dice[2].Value = 5;
-            Game.Dice[3].Value = 5;
-            Game.Dice[4].Value = 5;
+            Game.SetDieValue(0, 5);
+            Game.SetDieValue(1, 5);
+            Game.SetDieValue(2, 5);
+            Game.SetDieValue(3, 5);
+            Game.SetDieValue(4, 5);
             Game.UpdateBoard();
+
             Assert.AreEqual(0, Game.GetBoardSpaceValue(4, 0));
             Assert.AreEqual(0, Game.GetBoardSpaceValue(4, 1));
             Assert.AreEqual(0, Game.GetBoardSpaceValue(4, 2));
@@ -57,7 +58,7 @@ namespace FiveByFiveTests
         public void PlayerShouldHaveTwoStrikesWhenNotUsingTwoOfTheirDice()
         {
             CreateGameWithThisManyPlayers(1);
-            Game.AssignBoardSpace(100, 2, 0);
+            Game.AssignBoardSpace(100, 0, 2);
             Game.EndTurn();
             Assert.AreEqual(2, Game.GetPlayerStrikes(0));
         }
@@ -67,7 +68,7 @@ namespace FiveByFiveTests
         {
             CreateGameWithThisManyPlayers(1);
             Game.AssignBoardSpace(100, 0, 0);
-            Game.AssignBoardSpace(100, 0, 4);
+            Game.AssignBoardSpace(100, 4, 0);
             Game.EndTurn();
             Assert.AreEqual(3, Game.GetPlayerStrikes(0));
         }
@@ -76,9 +77,18 @@ namespace FiveByFiveTests
         public void PlayerShouldHaveOneStrikeWhenNotUsingOneDie()
         {
             CreateGameWithThisManyPlayers(1);
-            Game.AssignBoardSpace(100, 3, 2);
+            Game.AssignBoardSpace(100, 2, 3);
             Game.EndTurn();
             Assert.AreEqual(1, Game.GetPlayerStrikes(0));
+        }
+
+        [TestMethod]
+        public void PlayerShouldHaveZeroStrikesWhenUsingAllOfTheirDice()
+        {
+            CreateGameWithThisManyPlayers(1);
+            Game.AssignBoardSpace(100, 2, 4);
+            Game.EndTurn();
+            Assert.AreEqual(0, Game.GetPlayerStrikes(0));
         }
 
         public void CreateGameWithThisManyPlayers(int playercount)
