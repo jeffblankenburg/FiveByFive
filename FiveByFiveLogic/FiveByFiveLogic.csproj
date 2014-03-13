@@ -36,6 +36,10 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ai\Ai.cs" />
+    <Compile Include="Ai\EasyAi.cs" />
+    <Compile Include="Ai\FiveByFiveGameExtensions.cs" />
+    <Compile Include="Ai\RoundSelection.cs" />
     <Compile Include="Board.cs" />
     <Compile Include="Die.cs" />
     <Compile Include="FiveByFiveGame.cs" />
