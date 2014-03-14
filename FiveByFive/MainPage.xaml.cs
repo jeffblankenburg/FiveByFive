@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.ServiceModel.Channels;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -95,8 +96,16 @@ namespace FiveByFive
         {
             //MessageBox.Show("There should definitely be a check here to make sure they want to confirm their move.");
             Game.EndTurn();
-            ResetDice();
-            UpdateBoard();
+            if (Game.IsOver())
+            {
+                MessageBox.Show("Game Over!");
+                NavigationService.Navigate(new Uri("/StartScreen.xaml", UriKind.Relative));
+            }
+            else
+            {
+                ResetDice();
+                UpdateBoard();
+            }
         }
 
         private void ResetDice()

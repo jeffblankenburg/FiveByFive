@@ -47,11 +47,12 @@ namespace FiveByFiveTests
         }
 
         [TestMethod]
-        //THIS IS A VERY WONKY TEST.  WE ARE RELYING ON THE RANDOM ROLL TO BE DIFFERENT.  NEED TO REFACTOR.
-        public void FirstDieIsNOTHeldAndChangesValueOnNextRoll()
+        public void FirstDieIsNotHeldAndChangesValueOnNextRoll()
         {
             SimulateThisManyRolls(1);
             Game.SetDieValue(0, 5);
+            // force the rolls to return 4's instead of random
+            Game.Random = new FakeRandom(4);
             SimulateThisManyRolls(1);
             Assert.AreNotEqual(5, Game.GetDieValue(0));
         }
@@ -73,6 +74,21 @@ namespace FiveByFiveTests
             OldDice[3] = Game.GetDieValue(3);
             OldDice[4] = Game.GetDieValue(4);
             return OldDice;
+        }
+    }
+
+    internal class FakeRandom : Random
+    {
+        private readonly int _staticValue;
+
+        public FakeRandom(int staticValue)
+        {
+            _staticValue = staticValue;
+        }
+
+        public override int Next(int minValue, int maxValue)
+        {
+            return Math.Min(maxValue, Math.Max(_staticValue, minValue));
         }
     }
 }

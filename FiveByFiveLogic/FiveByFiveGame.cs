@@ -13,11 +13,14 @@ namespace FiveByFiveLogic
         private List<Die> Dice = new List<Die>(5) { new Die(), new Die(), new Die(), new Die(), new Die() };
         private Board GameBoard = new Board();
         
+        internal Random Random { get; set; }
         
         public FiveByFiveGame()
         {
             PlayerIndex = 0;
             RollIndex = -1;
+
+            Random = new Random();
         }
 
         public void AddPlayer(Player p)
@@ -34,12 +37,11 @@ namespace FiveByFiveLogic
             {
                 result = new RollResult { DidRoll = true };
 
-                Random r = new Random();
                 for (int i = 0; i < 5; i++)
                 {
                     if (!Dice[i].IsHeld)
                     {
-                        Dice[i].Value = r.Next(1, 6);
+                        Dice[i].Value = Random.Next(1, 6);
                     }
                 }
                 RollIndex++;
@@ -214,6 +216,14 @@ namespace FiveByFiveLogic
         public void SetDieValue(int index, int value)
         {
             Dice[index].Value = value;
+        }
+
+        public bool IsOver()
+        {
+            // if > 1 players, only one player left
+            // if 1 player, when you run out of strikes
+            return (Players.Count > 1 && Players.Count(x => x.Strikes < 5) <= 1) 
+                || (Players.Count == 1 && Players[0].Strikes >= 5);
         }
     }
 }
