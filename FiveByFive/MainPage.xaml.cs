@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.ServiceModel.Channels;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
-using FiveByFive.Resources;
 using System.Windows.Shapes;
 using FiveByFiveLogic;
 using System.Windows.Media;
@@ -23,44 +17,23 @@ namespace FiveByFive
         SolidColorBrush BlueBrush;
         SolidColorBrush ClearBrush;
         
-        // Constructor
         public MainPage()
         {
             InitializeComponent();
-            //DataContext = Game;
-            //GridRotation.Begin();
-        }
-
-        private void AddPlayersToGame(string q)
-        {
-            string[] split = q.Split(new char[] { ',' });
-            for (int i = 0; i < split.Length-1; i++)
-            {
-                Game.AddPlayer(new Player { Name = split[i], IsHumanPlayer = Convert.ToBoolean(split[i + 1]) });
-                i++;
-            }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (NavigationContext.QueryString.ContainsKey("q"))
+            Game.AddPlayer(new Player
             {
-                if (Game.GetPlayerCount() == 0)
-                { 
-                    string q = NavigationContext.QueryString["q"].ToString();
-                    AddPlayersToGame(q);
-                }
-            }
+                Name = "You",
+                IsHumanPlayer = true
+            });
             
             BlueBrush = new SolidColorBrush(Colors.Blue);
             HeldBrush = new SolidColorBrush(HeldColor);
             ClearBrush = new SolidColorBrush(Colors.Transparent);
             UpdateBoard();
-        }
-
-        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
-        {
-
         }
 
         private void Number_Tap(object sender, System.Windows.Input.GestureEventArgs e)
@@ -94,11 +67,11 @@ namespace FiveByFive
 
         private void EndTurn()
         {
-            //MessageBox.Show("There should definitely be a check here to make sure they want to confirm their move.");
             Game.EndTurn();
             if (Game.IsOver())
             {
-                MessageBox.Show("Game Over!");
+                var score = Game.ScoreBoard();
+                MessageBox.Show("Great job, you scored " + score);
                 NavigationService.Navigate(new Uri("/StartScreen.xaml", UriKind.Relative));
             }
             else
@@ -244,7 +217,6 @@ namespace FiveByFive
                     RollButton.Content = "Save Choices";
                     break;
             }
-            //RollButton.Content = "Roll " + (Game.GetRollIndex() + 1).ToString();
         }
 
         private SolidColorBrush GetPlayerSolidColorBrush(int i)
