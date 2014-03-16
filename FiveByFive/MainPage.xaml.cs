@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.ServiceModel.Channels;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
-using FiveByFive.Resources;
 using System.Windows.Shapes;
 using FiveByFiveLogic;
 using System.Windows.Media;
@@ -23,34 +20,18 @@ namespace FiveByFive
         SolidColorBrush BlueBrush;
         SolidColorBrush ClearBrush;
         
-        // Constructor
         public MainPage()
         {
             InitializeComponent();
-            //DataContext = Game;
-            //GridRotation.Begin();
-        }
-
-        private void AddPlayersToGame(string q)
-        {
-            string[] split = q.Split(new char[] { ',' });
-            for (int i = 0; i < split.Length-1; i++)
-            {
-                Game.AddPlayer(new Player { Name = split[i], IsHumanPlayer = Convert.ToBoolean(split[i + 1]) });
-                i++;
-            }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (NavigationContext.QueryString.ContainsKey("q"))
+            Game.AddPlayer(new Player
             {
-                if (Game.GetPlayerCount() == 0)
-                { 
-                    string q = NavigationContext.QueryString["q"].ToString();
-                    AddPlayersToGame(q);
-                }
-            }
+                Name = "You",
+                IsHumanPlayer = true
+            });
             
             BlueBrush = new SolidColorBrush(Colors.Blue);
             HeldBrush = new SolidColorBrush(HeldColor);
@@ -58,12 +39,7 @@ namespace FiveByFive
             UpdateBoard();
         }
 
-        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
-        {
-
-        }
-
-        private void Number_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        private void Number_Tap(object sender, GestureEventArgs e)
         {
             if (Game.GetRollIndex() == 2)
             {
@@ -94,11 +70,16 @@ namespace FiveByFive
 
         private void EndTurn()
         {
-            //MessageBox.Show("There should definitely be a check here to make sure they want to confirm their move.");
+            if (Game.GetSelectedSpots() != 5)
+                if (MessageBox.Show("Are you sure, you have unused dice?", "Confirm End of Turn", MessageBoxButton.OKCancel) ==
+                    MessageBoxResult.Cancel)
+                    return;
+
             Game.EndTurn();
             if (Game.IsOver())
             {
-                MessageBox.Show("Game Over!");
+                var score = Game.ScoreBoard();
+                MessageBox.Show("Great job, you scored " + score);
                 NavigationService.Navigate(new Uri("/StartScreen.xaml", UriKind.Relative));
             }
             else
@@ -244,7 +225,6 @@ namespace FiveByFive
                     RollButton.Content = "Save Choices";
                     break;
             }
-            //RollButton.Content = "Roll " + (Game.GetRollIndex() + 1).ToString();
         }
 
         private SolidColorBrush GetPlayerSolidColorBrush(int i)
@@ -262,7 +242,7 @@ namespace FiveByFive
             }
         }
 
-        private void Die_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        private void Die_Tap(object sender, GestureEventArgs e)
         {
             Rectangle r = sender as Rectangle;
             int die = Int32.Parse(r.Name.Replace("Die", ""));
@@ -271,9 +251,21 @@ namespace FiveByFive
                 r.Fill = HeldBrush;
             }
             else r.Fill = ClearBrush;
+
+            // if all die saved, then go ahead and be able to end the round
+            if (new[] { Die0, Die1, Die2, Die3, Die4 }.All(x => x.Fill == HeldBrush))
+            {
+                EndTurnButton.IsEnabled = true;
+                RollButton.IsEnabled = false;
+            }
+            else
+            {
+                EndTurnButton.IsEnabled = false;
+                RollButton.IsEnabled = true;
+            }
         }
 
-        private void X_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        private void X_Tap(object sender, GestureEventArgs e)
         {
             TextBlock t = sender as TextBlock;
             string n = t.Name;

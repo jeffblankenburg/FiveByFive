@@ -29,7 +29,6 @@
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <StackPanel>
                 <Button Content="New Game" Click="NewGame_Click"/>
-                <Button Content="Settings"></Button>
                 <Button Content="About" Click="About_Click"></Button>
             </StackPanel>
         </Grid>

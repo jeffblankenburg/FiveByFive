@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
 
 namespace FiveByFiveLogic
 {
@@ -70,11 +71,11 @@ namespace FiveByFiveLogic
             
             //COUNT THE NUMBER OF EACH TYPE OF DICE.
             
-            Counters[0] = Counters[0] + Dice.Where(d => d.Value == 1).Count();
-            Counters[1] = Counters[1] + Dice.Where(d => d.Value == 2).Count();
-            Counters[2] = Counters[2] + Dice.Where(d => d.Value == 3).Count();
-            Counters[3] = Counters[3] + Dice.Where(d => d.Value == 4).Count();
-            Counters[4] = Counters[4] + Dice.Where(d => d.Value == 5).Count();
+            Counters[0] = Counters[0] + Dice.Count(d => d.Value == 1);
+            Counters[1] = Counters[1] + Dice.Count(d => d.Value == 2);
+            Counters[2] = Counters[2] + Dice.Count(d => d.Value == 3);
+            Counters[3] = Counters[3] + Dice.Count(d => d.Value == 4);
+            Counters[4] = Counters[4] + Dice.Count(d => d.Value == 5);
 
             //MARK THE SPACES THAT COULD STILL BE CHECKED.
             for (x = 0; x <= 4; x++)
@@ -224,6 +225,35 @@ namespace FiveByFiveLogic
             // if 1 player, when you run out of strikes
             return (Players.Count > 1 && Players.Count(x => x.Strikes < 5) <= 1) 
                 || (Players.Count == 1 && Players[0].Strikes >= 5);
+        }
+
+        public int ScoreBoard()
+        {
+            var score = 0;
+            // I feel like I should be able to LINQ across a 2d array, but I don't think I can :(
+            for (var x = 0; x < GameBoard.Spaces.GetLength(0); x++)
+                for (var y = 0; y < GameBoard.Spaces.GetLength(1); y++)
+                    if (GameBoard.Spaces[x, y] == 1)
+                        score += (y + 1) * (y + 1);
+            
+            return score;
+        }
+
+        public int GetSelectedSpots()
+        {
+            return GameBoard.Spaces.ToDictionary().Count(x => x.Value == 100);
+        }
+    }
+
+    public static class Extensions
+    {
+        public static IDictionary<Tuple<int, int>, int> ToDictionary(this int[,] data)
+        {
+            var dict = new Dictionary<Tuple<int, int>, int>();
+            for (var x = 0; x < data.GetLength(0); x++)
+                for (var y = 0; y < data.GetLength(1); y++)
+                    dict.Add(new Tuple<int, int>(x, y), data[x,y]);
+            return dict;
         }
     }
 }
