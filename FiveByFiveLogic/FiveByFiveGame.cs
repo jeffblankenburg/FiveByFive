@@ -141,6 +141,7 @@ namespace FiveByFiveLogic
         {
             if (Dice[die].IsHeld == true) Dice[die].IsHeld = false;
             else if (Dice[die].IsHeld == false) Dice[die].IsHeld = true;
+            SynchronizeBoardSpacesAndHoldPositions();
             return Dice[die].IsHeld;        
         }
 
@@ -186,6 +187,13 @@ namespace FiveByFiveLogic
                 GameBoard.Spaces[x, y] = 100;
             else if ((state == false) && (GameBoard.Spaces[x, y] == 100))
                 GameBoard.Spaces[x, y] = 0;
+
+            SynchronizeBoardSpacesAndHoldPositions();
+        }
+
+        private void SynchronizeBoardSpacesAndHoldPositions()
+        {
+            
         }
 
         public bool CheckPositionForMarking(int x, int y)

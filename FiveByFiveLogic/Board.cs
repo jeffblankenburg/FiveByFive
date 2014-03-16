@@ -8,6 +8,11 @@ namespace FiveByFiveLogic
 {
     public class Board
     {
+        //  -1 IS THE DEFAULT STATE.
+        //  0 IS A SPACE THAT SHOULD BE HIGHLIGHTED.
+        //  1, 2, OR 3 ARE PLAYER VALUES THAT INDICATE IT HAS BEEN MARKED BY A SPECIFIC PLAYER.
+        //  100 MEANS THAT A PLAYER HAS MARKED THE SPACE, BUT HAS NOT YET FINISHED THEIR TURN TO COMMIT THAT CHOICE.
+        
         public int[,] Spaces = new int[5, 5];
 
         public Board()

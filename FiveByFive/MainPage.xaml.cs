@@ -266,11 +266,14 @@ namespace FiveByFive
         {
             Rectangle r = sender as Rectangle;
             int die = Int32.Parse(r.Name.Replace("Die", ""));
-            if (Game.HoldDie(die))
-            {
-                r.Fill = HeldBrush;
+            if (Game.GetDieValue(die) > 0)
+            { 
+                if (Game.HoldDie(die))
+                {
+                    r.Fill = HeldBrush;
+                }
+                else r.Fill = ClearBrush;
             }
-            else r.Fill = ClearBrush;
         }
 
         private void X_Tap(object sender, System.Windows.Input.GestureEventArgs e)
