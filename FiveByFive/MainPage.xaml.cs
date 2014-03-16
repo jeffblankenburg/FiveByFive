@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Linq;
+using System.ServiceModel.Channels;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using System.Windows.Shapes;
@@ -36,7 +39,7 @@ namespace FiveByFive
             UpdateBoard();
         }
 
-        private void Number_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        private void Number_Tap(object sender, GestureEventArgs e)
         {
             if (Game.GetRollIndex() == 2)
             {
@@ -67,6 +70,11 @@ namespace FiveByFive
 
         private void EndTurn()
         {
+            if (Game.GetSelectedSpots() != 5)
+                if (MessageBox.Show("Are you sure, you have unused dice?", "Confirm End of Turn", MessageBoxButton.OKCancel) ==
+                    MessageBoxResult.Cancel)
+                    return;
+
             Game.EndTurn();
             if (Game.IsOver())
             {
@@ -234,7 +242,7 @@ namespace FiveByFive
             }
         }
 
-        private void Die_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        private void Die_Tap(object sender, GestureEventArgs e)
         {
             Rectangle r = sender as Rectangle;
             int die = Int32.Parse(r.Name.Replace("Die", ""));
@@ -243,9 +251,21 @@ namespace FiveByFive
                 r.Fill = HeldBrush;
             }
             else r.Fill = ClearBrush;
+
+            // if all die saved, then go ahead and be able to end the round
+            if (new[] { Die0, Die1, Die2, Die3, Die4 }.All(x => x.Fill == HeldBrush))
+            {
+                EndTurnButton.IsEnabled = true;
+                RollButton.IsEnabled = false;
+            }
+            else
+            {
+                EndTurnButton.IsEnabled = false;
+                RollButton.IsEnabled = true;
+            }
         }
 
-        private void X_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        private void X_Tap(object sender, GestureEventArgs e)
         {
             TextBlock t = sender as TextBlock;
             string n = t.Name;

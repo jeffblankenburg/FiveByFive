@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
 
 namespace FiveByFiveLogic
 {
@@ -236,6 +237,23 @@ namespace FiveByFiveLogic
                         score += (y + 1) * (y + 1);
             
             return score;
+        }
+
+        public int GetSelectedSpots()
+        {
+            return GameBoard.Spaces.ToDictionary().Count(x => x.Value == 100);
+        }
+    }
+
+    public static class Extensions
+    {
+        public static IDictionary<Tuple<int, int>, int> ToDictionary(this int[,] data)
+        {
+            var dict = new Dictionary<Tuple<int, int>, int>();
+            for (var x = 0; x < data.GetLength(0); x++)
+                for (var y = 0; y < data.GetLength(1); y++)
+                    dict.Add(new Tuple<int, int>(x, y), data[x,y]);
+            return dict;
         }
     }
 }
