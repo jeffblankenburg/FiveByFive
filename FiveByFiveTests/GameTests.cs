@@ -36,23 +36,23 @@ namespace FiveByFiveTests
             Assert.AreEqual(1, Game.GetBoardSpaceValue(0,0));
         }
 
-        [TestMethod]
-        public void BoardShouldHighlightAllFive5SpacesWhenThereAreFive5sRolled()
-        {
-            CreateGameWithThisManyPlayers(1);
-            Game.SetDieValue(0, 5);
-            Game.SetDieValue(1, 5);
-            Game.SetDieValue(2, 5);
-            Game.SetDieValue(3, 5);
-            Game.SetDieValue(4, 5);
-            Game.UpdateBoard();
+        //[TestMethod]
+        //public void BoardShouldHighlightAllFive5SpacesWhenThereAreFive5sRolled()
+        //{
+        //    CreateGameWithThisManyPlayers(1);
+        //    Game.SetDieValue(0, 5);
+        //    Game.SetDieValue(1, 5);
+        //    Game.SetDieValue(2, 5);
+        //    Game.SetDieValue(3, 5);
+        //    Game.SetDieValue(4, 5);
+        //    Game.UpdateBoard();
 
-            Assert.AreEqual(0, Game.GetBoardSpaceValue(4, 0));
-            Assert.AreEqual(0, Game.GetBoardSpaceValue(4, 1));
-            Assert.AreEqual(0, Game.GetBoardSpaceValue(4, 2));
-            Assert.AreEqual(0, Game.GetBoardSpaceValue(4, 3));
-            Assert.AreEqual(0, Game.GetBoardSpaceValue(4, 4));
-        }
+        //    Assert.AreEqual(0, Game.GetBoardSpaceValue(4, 0));
+        //    Assert.AreEqual(0, Game.GetBoardSpaceValue(4, 1));
+        //    Assert.AreEqual(0, Game.GetBoardSpaceValue(4, 2));
+        //    Assert.AreEqual(0, Game.GetBoardSpaceValue(4, 3));
+        //    Assert.AreEqual(0, Game.GetBoardSpaceValue(4, 4));
+        //}
 
         [TestMethod]
         public void PlayerShouldHaveFourStrikesWhenNotUsingFourOfTheirDice()
@@ -99,6 +99,47 @@ namespace FiveByFiveTests
             Game.EndTurn();
             Assert.AreEqual(0, Game.GetPlayerStrikes(0));
         }
+
+        [TestMethod]
+        public void HavingThreeDiceWithTheValueOfTwoShouldReturnADiceCountOfThreeForTheTwosPosition()
+        {
+            CreateGameWithThisManyPlayers(1);
+            Game.SetDieValue(0, 1);
+            Game.SetDieValue(1, 2);
+            Game.SetDieValue(2, 2);
+            Game.SetDieValue(3, 4);
+            Game.SetDieValue(4, 2);
+            int[] Counters = Game.CountDice();
+            Assert.AreEqual(3, Counters[1]);
+        }
+
+        [TestMethod]
+        public void HoldingTwo2sShouldAlsoHighlightTheTwo2sBoxOnTheBoard()
+        {
+            CreateGameWithThisManyPlayers(1);
+            Game.SetDieValue(0, 2);
+            Game.SetDieValue(1, 2);
+            Game.SetDieValue(2, 2);
+            Game.SetDieValue(3, 2);
+            Game.SetDieValue(4, 2);
+            Game.HoldDie(0);
+            Game.HoldDie(4);
+            Assert.AreEqual(100, Game.GetBoardSpaceValue(1, 1));
+        }
+
+        //[TestMethod]
+        //public void HoldingTwo2sShouldAlsoHighlightTheTwo2sBoxOnTheBoard()
+        //{
+        //    CreateGameWithThisManyPlayers(1);
+        //    Game.SetDieValue(0, 2);
+        //    Game.SetDieValue(1, 2);
+        //    Game.SetDieValue(2, 2);
+        //    Game.SetDieValue(3, 2);
+        //    Game.SetDieValue(4, 2);
+        //    Game.HoldDie(0);
+        //    Game.HoldDie(4);
+        //    Assert.AreEqual(100, Game.GetBoardSpaceValue(1, 1));
+        //}
 
         public void CreateGameWithThisManyPlayers(int playercount)
         {

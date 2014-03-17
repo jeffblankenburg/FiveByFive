@@ -49,52 +49,63 @@ namespace FiveByFiveLogic
             return result;
         }
 
-        public void UpdateBoard()
+        public int[] CountDice()
         {
-            int[] Counters = new int[] {0,0,0,0,0};
-            int x;
-            int y;
-            
-            //RESET ALL HIGHLIGHTED SPACES.
-            for (x = 0; x <= 4; x++)
+            int[] Counters = new int[] { 0, 0, 0, 0, 0 };
+            //MAKE SURE THE DICE HAVE ACTUALLY BEEN ROLLED BEFORE DOING THIS.
+            if (GetDieValue(0) > 0 && GetDieValue(1) > 0 && GetDieValue(2) > 0 && GetDieValue(3) > 0 && GetDieValue(4) > 0)
             {
-                for (y = 0; y <= 4; y++)
+                for (int x = 0; x <= 4; x++)
                 {
-                    if (GameBoard.Spaces[x, y] == 0)
-                        GameBoard.Spaces[x, y] = -1;
-
-                    if (GameBoard.Spaces[x, y] == 100)
-                        Counters[x] = Counters[x] - (y+1);
+                    int y = GetDieValue(x) - 1;
+                    Counters[y]++;
                 }
             }
-            
-            //COUNT THE NUMBER OF EACH TYPE OF DICE.
-            
-            Counters[0] = Counters[0] + Dice.Where(d => d.Value == 1).Count();
-            Counters[1] = Counters[1] + Dice.Where(d => d.Value == 2).Count();
-            Counters[2] = Counters[2] + Dice.Where(d => d.Value == 3).Count();
-            Counters[3] = Counters[3] + Dice.Where(d => d.Value == 4).Count();
-            Counters[4] = Counters[4] + Dice.Where(d => d.Value == 5).Count();
+            return Counters;
+        }
 
-            //MARK THE SPACES THAT COULD STILL BE CHECKED.
-            for (x = 0; x <= 4; x++)
+        public int[] CountHeldDice()
+        {
+            int[] Counters = new int[] { 0, 0, 0, 0, 0 };
+            //MAKE SURE THE DICE HAVE ACTUALLY BEEN ROLLED BEFORE DOING THIS.
+            if (GetDieValue(0) > 0 && GetDieValue(1) > 0 && GetDieValue(2) > 0 && GetDieValue(3) > 0 && GetDieValue(4) > 0)
             {
-                if (Counters[x] > 0)
+                for (int x = 0; x <= 4; x++)
                 {
-                    for (y = Counters[x] - 1; y >= 0; y--)
+                    if (IsDieHeld(x))
                     {
-                        if (GameBoard.Spaces[x, y] == -1)
-                            GameBoard.Spaces[x, y] = 0;
+                        int y = GetDieValue(x) - 1;
+                        Counters[y]++;
                     }
                 }
-                else
+            }
+            return Counters;
+        }
+
+        public void UpdateBoard()
+        {
+            int[] Counters = CountHeldDice();
+            
+            //RESET ALL HIGHLIGHTED SPACES.
+            for (int x = 0; x <= 4; x++)
+            {
+                for (int y = 0; y <= 4; y++)
                 {
-                    for (y = 0; y <= 4; y++)
+                    if ((GameBoard.Spaces[x, y] == 0) || (GameBoard.Spaces[x, y] == 100))
                     {
-                        if (GameBoard.Spaces[x, y] == 0)
-                            GameBoard.Spaces[x, y] = -1;
+                        GameBoard.Spaces[x, y] = -1;
                     }
                 }
+                //THIS CURRENTLY HIGHLIGHTS THE APPROPRIATE BOX FOR THE DICE YOU HAVE HELD.
+                if ((Counters[x]) > 0)
+                {
+                    if (GetBoardSpaceValue(x, Counters[x] - 1) == -1)
+                    {
+                        MarkBoard(x, Counters[x] - 1, true, false);
+                    }
+                }
+
+                //TODO: ALSO VERIFY THAT THE BOARD SELECTIONS THEY MAKE ACTUALLY HOLD THE DICE TOO.
             }
         }
 
@@ -112,7 +123,6 @@ namespace FiveByFiveLogic
                         UsedDiceCount = UsedDiceCount + (y + 1);
                     }
                 }
-                HoldDie(x);
             }
 
             //THIS NEEDS TO MAKE SURE THE CURRENT PLAYER IS ASSIGNED A STRIKE FOR EVERY DIE THEY DIDN'T USE.
@@ -137,11 +147,16 @@ namespace FiveByFiveLogic
             return Dice[die].Value;
         }
 
+        public bool IsDieHeld(int die)
+        {
+            return Dice[die].IsHeld;
+        }
+
         public bool HoldDie(int die)
         {
             if (Dice[die].IsHeld == true) Dice[die].IsHeld = false;
             else if (Dice[die].IsHeld == false) Dice[die].IsHeld = true;
-            SynchronizeBoardSpacesAndHoldPositions();
+            UpdateBoard();
             return Dice[die].IsHeld;        
         }
 
@@ -180,20 +195,14 @@ namespace FiveByFiveLogic
                 return String.Empty;
         }
 
-        public void MarkBoard(int x, int y, bool state)
+        public void MarkBoard(int x, int y, bool state, bool shouldsync = true)
         {
             //WE MARK THE SPACES AS "100" WHEN THE USER SELECTS THEM.  WE CHANGE THEM TO THEIR POSITION WHEN THEY COMMIT THE CHOICE.
             if (state == true)
                 GameBoard.Spaces[x, y] = 100;
             else if ((state == false) && (GameBoard.Spaces[x, y] == 100))
                 GameBoard.Spaces[x, y] = 0;
-
-            SynchronizeBoardSpacesAndHoldPositions();
-        }
-
-        private void SynchronizeBoardSpacesAndHoldPositions()
-        {
-            
+            if (shouldsync) UpdateBoard();
         }
 
         public bool CheckPositionForMarking(int x, int y)

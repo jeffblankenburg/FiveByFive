@@ -65,8 +65,8 @@ namespace FiveByFive
 
         private void Number_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            if (Game.GetRollIndex() == 2)
-            {
+            //if (Game.GetRollIndex() == 2)
+            //{
                 Rectangle r = sender as Rectangle;
                 string n = r.Name;
                 int i = Int32.Parse(n.Replace("Tap", ""));
@@ -78,7 +78,7 @@ namespace FiveByFive
                     Game.MarkBoard(x, y, true);
                     UpdateBoard();
                 }
-            }
+            //}
         }
 
         private void RollButton_Click(object sender, RoutedEventArgs e)
@@ -274,6 +274,7 @@ namespace FiveByFive
                 }
                 else r.Fill = ClearBrush;
             }
+            UpdateBoard();
         }
 
         private void X_Tap(object sender, System.Windows.Input.GestureEventArgs e)
